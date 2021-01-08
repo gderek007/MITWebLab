@@ -6,7 +6,7 @@
 - Name
 - Logo
 - More Features
-- Page Setup
+- Page Setup <br>
 **Milestone 1 (7/1)**
 
 - Collect Event List
@@ -16,7 +16,7 @@
 - Navigator Bar
 - Login Page
 - Icon
-- ...
+- ... <br>
 **Milestone 2 (19/1)**
 
 (I don't know what task remains so you fill it up)

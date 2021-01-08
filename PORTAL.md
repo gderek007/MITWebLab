@@ -1,10 +1,12 @@
 # DMS
 
 ## Due:
-- Palette
-- Page Design
-- Statement of Design
-- Page SetUp
+- Colors
+- Font
+- Name
+- Logo
+- More Features
+- Page Setup
 **Milestone 1 (7/1)**
 
 - Collect Event List

@@ -15,15 +15,17 @@
 */
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
+  --primary: #FFF7AE;
+  --primary--dim: #FEFFF1;
   --darkgrey: #d4d4d4;
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
+  --red: #FF6D6D;
+  --green: #219653;
 
   --xs: 4px;
   --s: 8px;
@@ -34,7 +36,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: 300;
 }
 

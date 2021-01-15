@@ -12,9 +12,19 @@ class NavBar extends Component {
     }
 
     render() {
+        return(
         <nav className="NavBar-container">
-            <div>
-            {this.props.userId ? (
+            <div className="NavBar-title u-inlineBlock">Eventinder</div>
+            <div className="NavBar-linkContainer u-inlineBlock">
+            <Link to="/" className="NavBar-link">
+                Home
+            </Link>
+            {this.props.userId && (
+                <Link to={`/profile/${this.props.userId}`} className="NavBar-link">
+                Profile
+                </Link>
+            )}
+          {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
               buttonText="Logout"
@@ -31,8 +41,9 @@ class NavBar extends Component {
               className="NavBar-link NavBar-login"
             />
           )}
-            </div>
+        </div>
         </nav>
+        );
     }
 
 }

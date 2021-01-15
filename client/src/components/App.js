@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
+import NavBar from "./modules/NavBar.js";
+
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 
@@ -48,8 +50,8 @@ class App extends Component {
     return (
       <>
         <Router>
-          <Skeleton
-            path="/"
+        <NavBar
+            path = '/'
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
             userId={this.state.userId}

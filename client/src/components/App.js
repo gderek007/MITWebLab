@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
-
+import Home from "./modules/Home.js";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 
@@ -60,6 +60,7 @@ class App extends Component {
             Add <Component path = "" props />
             <Feed path="/" userId={this.state.userId} />
             <Profile path="/profile/:userId" /> */}
+            <Home path = "/home" ></Home>
             <NotFound default />
           </Router>
         </div>

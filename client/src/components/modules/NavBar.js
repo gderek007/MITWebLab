@@ -17,13 +17,25 @@ class NavBar extends Component {
             <div className="NavBar-title u-inlineBlock">Eventinder</div>
             <div className="NavBar-linkContainer u-inlineBlock">
             <Link to="/" className="NavBar-link">
-                Home
+                Portal
             </Link>
-            {this.props.userId && (
+            <Link to="/" className="NavBar-link">
+                Map
+            </Link>
+            <Link to="/" className="NavBar-link">
+                Friends
+            </Link>
+            <Link to="/" className="NavBar-link">
+                Profile
+            </Link>
+            <Link to="/" className="NavBar-link">
+                Add Event
+            </Link>
+            {/* {this.props.userId && (
                 <Link to={`/profile/${this.props.userId}`} className="NavBar-link">
                 Profile
                 </Link>
-            )}
+            )} */}
           {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}

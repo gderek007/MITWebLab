@@ -49,15 +49,20 @@ class App extends Component {
   render() {
     return (
       <>
-        <Router>
         <NavBar
-            path = '/'
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          />
-          <NotFound default />
-        </Router>
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
+          userId={this.state.userId}
+        />
+        <div className="App-container">
+          <Router>
+            {/* 
+            Add <Component path = "" props />
+            <Feed path="/" userId={this.state.userId} />
+            <Profile path="/profile/:userId" /> */}
+            <NotFound default />
+          </Router>
+        </div>
       </>
     );
   }

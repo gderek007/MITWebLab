@@ -1,0 +1,7 @@
+.App-container {
+    /* max-width: 960px; */
+    /* padding: var(--m) var(--m); */
+    padding: 0 auto;
+    margin: auto;
+    height: 91.7vh; /*Sorry I am hacking with height */
+}

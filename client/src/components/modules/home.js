@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 
+import "./home.css";
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -7,17 +9,16 @@ class Home extends Component {
 
     render() {
         return (
-            <>
-            <div>
+            <div className="home-bodycontainer">
                 {/*Todo: I need a container for all of these*/}
-                <div>
+                <h1 className="home-title">
                     {/*Todo: I need a class for title */}
                     Create a party!
-                </div>
-                <div>
+                </h1>
+                <h2 className="home-subtitle">
                     {/*Todo: I need a class for subtitle */}
                     Join! Have Fun!
-                </div>
+                </h2>
                 <div>
                     {/*Todo: I need a class for all the buttons */}
                     <div>
@@ -28,7 +29,6 @@ class Home extends Component {
                     </div>
                 </div>
             </div>
-            </>    
         )
     } 
 }

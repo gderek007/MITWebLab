@@ -19,19 +19,19 @@ class NavBar extends Component {
                 Eventinder
             </Link></div>
             <div className="NavBar-linkContainer u-inlineBlock">
-            <Link to="/" className="NavBar-link">
+            <Link to="/timetanle" className="NavBar-link">
                 Portal
             </Link>
             <Link to="/map" className="NavBar-link">
                 Map
             </Link>
-            <Link to="/" className="NavBar-link">
+            <Link to="/friends" className="NavBar-link">
                 Friends
             </Link>
-            <Link to="/" className="NavBar-link">
+            <Link to="/profile" className="NavBar-link">
                 Profile
             </Link>
-            <Link to="/" className="NavBar-link">
+            <Link to="/addevent" className="NavBar-link">
                 Add Event
             </Link>
             {/* {this.props.userId && (

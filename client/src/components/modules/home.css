@@ -1,0 +1,10 @@
+.home {
+
+}
+
+.home-background {
+    background-image: url("../../images/");
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}

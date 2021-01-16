@@ -19,7 +19,7 @@ class NavBar extends Component {
                 Eventinder
             </Link></div>
             <div className="NavBar-linkContainer u-inlineBlock">
-            <Link to="/timetanle" className="NavBar-link">
+            <Link to="/timetable" className="NavBar-link">
                 Portal
             </Link>
             <Link to="/map" className="NavBar-link">

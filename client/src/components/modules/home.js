@@ -19,7 +19,7 @@ class Home extends Component {
                     {/*Todo: I need a class for subtitle */}
                     Join! Have Fun!
                 </h2>
-                <div>
+                <digv>
                     {/*Todo: I need a class for all the buttons */}
                     <div>
                         {/*Todo: Button linking to Login*/}

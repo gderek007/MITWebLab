@@ -7,7 +7,7 @@
 
 .home-bodycontainer {
     align-content: center;
-    margin-top: 150px;
+    margin-top: 30vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -16,12 +16,13 @@
 .home-title {
     font-size: 64px;
     text-align: center;
-    color: #FFFFFF;
+    margin: 5px;
 }
 
 .home-subtitle {
     font-size: 48px;
     text-align: center;
+    margin: 5px;
 }
 
 .home-buttoncontainer {

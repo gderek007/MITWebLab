@@ -14,12 +14,15 @@ class NavBar extends Component {
     render() {
         return(
         <nav className="NavBar-container">
-            <div className="NavBar-title u-inlineBlock">Eventinder</div>
+            <div className="NavBar-title u-inlineBlock">
+            <Link to="/home" className="NavBar-link">
+                Eventinder
+            </Link></div>
             <div className="NavBar-linkContainer u-inlineBlock">
             <Link to="/" className="NavBar-link">
                 Portal
             </Link>
-            <Link to="/" className="NavBar-link">
+            <Link to="/map" className="NavBar-link">
                 Map
             </Link>
             <Link to="/" className="NavBar-link">

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-class Feed extends Component {
+class Timetable extends Component {
     constructor(props) {
       super(props);
     }
@@ -7,3 +7,5 @@ class Feed extends Component {
     // render() {
     // }
 }
+
+export default Timetable

@@ -1,34 +1,64 @@
-.home-background {
-    background-image: url("../../images/party01.jpg");
+.home-container {
+    height: 91.7vh;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../../images/party01.jpg");
+    background-repeat: no-repeat; 
     background-position: 100% 0;
-    background-repeat: no-repeat;
     background-size: 100vw;
 }
 
 .home-bodycontainer {
+    position: relative;
+    top: 30vh;
     align-content: center;
-    margin-top: 150px;
-    width: 100vw;
+    width: 60%;
     display: flex;
     flex-direction: column;
+    padding: 0% 20%;
 }
 
 .home-title {
     font-size: 64px;
     text-align: center;
+    margin: 5px;
     color: #FFFFFF;
 }
 
 .home-subtitle {
     font-size: 48px;
     text-align: center;
+    margin: 5px;
+    color: #FFFFFF;
 }
 
 .home-buttoncontainer {
-    /* todo: position button */
+    position: relative;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0px;
+    padding: 0% 20%;
 }
 
-.home-button {
-    /* todo: style button */
+.home-button1 {
+    padding: 12px;
+    align-content: center;
+    text-align: center;
+    width: 150px;
+    background-color: white;
+    border-radius: 50px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.home-button2 {
+    padding: 12px;
+    align-content: center;
+    text-align: center;
+    width: 150px;
+    background-color: var(--primary);
+    border-radius: 50px;
+    color: #000000;
+    text-decoration: none;
 }
 

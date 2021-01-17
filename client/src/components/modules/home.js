@@ -1,6 +1,7 @@
 import React, {Component} from "react";
+import { Link } from "@reach/router";
 
-import "./home.css";
+import "./Home.css";
 
 class Home extends Component {
     constructor(props) {
@@ -9,23 +10,37 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="home-bodycontainer">
-                {/*Todo: I need a container for all of these*/}
-                <h1 className="home-title">
-                    {/*Todo: I need a class for title */}
-                    Create a party!
-                </h1>
-                <h2 className="home-subtitle">
-                    {/*Todo: I need a class for subtitle */}
-                    Join! Have Fun!
-                </h2>
-                <div>
-                    {/*Todo: I need a class for all the buttons */}
-                    <div>
-                        {/*Todo: Button linking to Login*/}
-                    </div>
-                    <div>
-                        {/*Todo: Button linking to event map*/}
+            <div className="home-container">
+                <div className="home-bodycontainer">
+                    <h1 className="home-title">
+                        Create a party!
+                    </h1>
+                    <h2 className="home-subtitle">
+                        Join! Have Fun!
+                    </h2>
+                    <div className="home-buttoncontainer">
+                        <Link to="/portal" className="home-button1">
+                            Event Timetable
+                        </Link>
+                        {/* <button className="home-button1">
+                            Event Timetable
+                        </button> */}
+                        {/* <button className="home-button2">
+                            Your Profile
+                        </button> */}
+                        {/* <Link to="/login" className="home-button2">
+                            Your Profile
+                        </Link> */}
+                        {this.props.userId ? (
+                        <Link to="/profile" className="home-button2">
+                            Your Profile
+                        </Link>
+                        ) : (
+                        <Link to="/map" className="home-button2">
+                            {/* Can I do a login button here? */}
+                            Event Map
+                        </Link>
+                        )}
                     </div>
                 </div>
             </div>

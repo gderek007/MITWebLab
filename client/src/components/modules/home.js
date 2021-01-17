@@ -17,14 +17,8 @@ class Home extends Component {
                     <h2 className="home-subtitle">
                         Join! Have Fun!
                     </h2>
-                    <div>
-                        {/*Todo: I need a class for all the buttons */}
-                        <div>
-                            {/*Todo: Button linking to Login*/}
-                        </div>
-                        <div>
-                            {/*Todo: Button linking to event map*/}
-                        </div>
+                    <div className="home-buttoncontainer">
+                        <p style={{color: 'white'}}> Hi guys! </p>
                     </div>
                 </div>
             </div>

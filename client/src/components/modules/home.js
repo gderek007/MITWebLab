@@ -1,6 +1,7 @@
 import React, {Component} from "react";
+import { Link } from "@reach/router";
 
-import "./home.css";
+import "./Home.css";
 
 class Home extends Component {
     constructor(props) {
@@ -18,7 +19,28 @@ class Home extends Component {
                         Join! Have Fun!
                     </h2>
                     <div className="home-buttoncontainer">
-                        <p style={{color: 'white'}}> Hi guys! </p>
+                        <Link to="/portal" className="home-button1">
+                            Event Timetable
+                        </Link>
+                        {/* <button className="home-button1">
+                            Event Timetable
+                        </button> */}
+                        {/* <button className="home-button2">
+                            Your Profile
+                        </button> */}
+                        {/* <Link to="/login" className="home-button2">
+                            Your Profile
+                        </Link> */}
+                        {this.props.userId ? (
+                        <Link to="/profile" className="home-button2">
+                            Your Profile
+                        </Link>
+                        ) : (
+                        <Link to="/map" className="home-button2">
+                            {/* Can I do a login button here? */}
+                            Event Map
+                        </Link>
+                        )}
                     </div>
                 </div>
             </div>

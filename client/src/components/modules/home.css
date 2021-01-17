@@ -11,9 +11,10 @@
     position: relative;
     top: 30vh;
     align-content: center;
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
+    padding: 0% 20%;
 }
 
 .home-title {
@@ -32,29 +33,32 @@
 
 .home-buttoncontainer {
     position: relative;
-    margin: 5vh;
     align-content: center;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    color: white;
-}
-
-.home-button1 .home-button2 {
-    /* todo: style button */
-    display: inline-block;
-    padding: 2.5vh;
-    align-content: center;
-    color: white;
+    justify-content: space-between;
+    margin: 12px 0px;
+    padding: 0% 20%;
 }
 
 .home-button1 {
-    /* todo: style button */
+    padding: 12px;
+    align-content: center;
+    text-align: center;
+    width: 150px;
     background-color: white;
+    border-radius: 50px;
+    color: #000000;
+    text-decoration: none;
 }
 
 .home-button2 {
-    /* todo: style button */
+    padding: 12px;
+    align-content: center;
+    text-align: center;
+    width: 150px;
     background-color: var(--primary);
+    border-radius: 50px;
+    color: #000000;
+    text-decoration: none;
 }
 

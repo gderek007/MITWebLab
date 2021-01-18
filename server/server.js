@@ -33,7 +33,7 @@ const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = "mongodb+srv://eventinder:<wasd1234>@cluster0.uufe7.mongodb.net/<Eventinder>?retryWrites=true&w=majority";
+const mongoConnectionURL = "mongodb+srv://derek:derek1234@cluster0.uufe7.mongodb.net/data?retryWrites=true&w=majority";
 // TODO change database name to the name you chose
 const databaseName = "Eventinder";
 
@@ -45,7 +45,7 @@ mongoose
     dbName: databaseName,
   })
   .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
+  .catch((err) => console.log(`Error connecting to MongoDB111: ${err}`));
 
 // create a new express server
 const app = express();

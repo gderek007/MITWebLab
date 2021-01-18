@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Event = require("./models/event");
+
 
 // import authentication library
 const auth = require("./auth");
@@ -20,6 +22,30 @@ const router = express.Router();
 
 //initialize socket
 const socketManager = require("./server-socket");
+
+router.post("/addevent", (req, res) => {
+  const newEvent = new Event({
+    host: req.user.name,
+    host_id: req.user._id,
+    nameEvent: req.body.nameEvent,
+    date: req.body.date,
+    address: req.body.address,
+    description: req.body.description,
+    interested: req.body.interested,
+    attending: req.body.attending,
+  });
+  
+  newEvent.save().then((event) => res.send(event)).catch((error) => console.log(error));
+  console.log("Posted");
+});
+
+router.get("/event", (req, res) => { 
+  Event.find({ date: req.query.date }).then((event) => {
+    res.send(event);
+  });
+});
+
+
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
-import Home from "./modules/Home.js";
 import CreateEvent from "./modules/CreateEvent.js";
 
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import Home from "./pages/Home.js";
 
 import "../utilities.css";
 import "./App.css";

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
-import CreateEvent from "./modules/CreateEvent.js";
+import CreateEvent from "./pages/CreateEvent.js";
 import Map from "./modules/Map.js";
 
 import NotFound from "./pages/NotFound.js";

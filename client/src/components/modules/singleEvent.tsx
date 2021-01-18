@@ -7,3 +7,5 @@ class SingleEvent extends Component {
     // render() {
     // }
 }
+
+export default SingleEvent

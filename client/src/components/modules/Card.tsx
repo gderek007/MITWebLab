@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-class Map extends Component {
+
+class Card extends Component {
     constructor(props) {
       super(props);
     }
@@ -7,3 +8,5 @@ class Map extends Component {
     // render() {
     // }
 }
+
+export default Card

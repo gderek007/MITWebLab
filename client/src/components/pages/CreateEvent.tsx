@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-class Feed extends Component {
+
+class CreateEvent extends Component {
     constructor(props) {
       super(props);
     }
@@ -7,3 +8,5 @@ class Feed extends Component {
     // render() {
     // }
 }
+
+export default CreateEvent

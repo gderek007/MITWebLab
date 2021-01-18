@@ -1,15 +1,17 @@
 const mongoose = require("mongoose");
 
-//define a event schema for the database
 const EventSchema = new mongoose.Schema({
-  host: String,
-  host_id: String,
-  nameEvent: String,
-  date: Date,
-  address: String,
-  description: String,
-  interested: Number,
-  attending: Number,
+    event_name: String,
+    creator_id: String,
+    creator_name: String,
+    start: String,
+    end: String,
+    timezone: String,
+    venue: String,
+    event_url: String,
+    summary: String,
+    Image_id: String,
+    rate: Number,
 });
 
 // compile model from schema

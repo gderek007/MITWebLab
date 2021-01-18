@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
 import CreateEvent from "./modules/CreateEvent.js";
+import Map from "./modules/Map.js";
 
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
@@ -64,7 +65,8 @@ class App extends Component {
             <Feed path="/" userId={this.state.userId} />
             <Profile path="/profile/:userId" /> */}
             <CreateEvent path = "/addevent" ></CreateEvent>
-            <Home path = "/home" ></Home>
+            <Home path = "/home" />
+            <Map path = "/map" />
             <NotFound default />
           </Router>
         </div>

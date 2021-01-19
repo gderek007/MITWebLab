@@ -11,6 +11,22 @@
     background-color: var(--red)
 }
 
+.profile-nomargin {
+    margin: 0px;
+}
+
+.profile-left-names {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.profile-left-details {
+    position: relative;
+    top: 24px;
+    padding-top: 0;
+    padding-bottom: 0
+}
+
 .profile-right {
     height: 100%;
     padding: 24px 3vw 24px 3vw;

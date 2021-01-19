@@ -45,9 +45,16 @@ class Profile extends Component {
     return (
       <div className="profile-container">
         <div className="profile-left">
-            <h1> {this.state.user.name} </h1>
-            <h2> {this.state.user.user_nickname} </h2>
-            <p> Rating: {this.state.user.rating} / 10 </p>
+            <div className="profile-left-names">
+                <h1 className="profile-nomargin"> {this.state.user.name} </h1>
+                <h3 className="profile-nomargin"> {this.state.user.user_nickname} </h3>
+                <p className="profile-nomargin"> Rating: {this.state.user.rating} / 10 </p>
+            </div>
+            <div className="profile-left-details">
+                <p className="profile-nomargin"> Based in: {this.state.user.based} </p>
+                <p className="profile-nomargin"> Email: {this.state.user.email} </p>
+                <p className="profile-nomargin"> Facebook Name: {this.state.user.facebook_name} </p>
+            </div>
         </div>
         <div className="profile-right">
             <span> Here is a test. </span>

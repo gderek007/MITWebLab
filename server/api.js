@@ -36,16 +36,31 @@ router.post("/addevent", (req, res) => {
   });
   
   newEvent.save().then((event) => res.send(event)).catch((error) => console.log(error));
-  console.log("Posted");
+  console.log("Posted Event");
 });
 
-router.get("/event", (req, res) => { 
-  Event.find({ date: req.query.date }).then((event) => {
+router.get("/events", (req, res) => { 
+    Event.find().then((event) => {
     res.send(event);
   });
 });
 
+router.post("/comment", (req, res) => {
+  const newComment = new Comment({
+    creator_name: req.user.name,
+    creator_id: req.user._id,
+    content: req.body.content,
+    parent: req.body.parent,
+  });
 
+  newComment.save().then((comment) => res.send(comment));
+});
+
+router.get("/comment", (req, res) => {
+  Comment.find({ parent: req.query.parent }).then((comments) => {
+    res.send(comments);
+  });
+});
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);

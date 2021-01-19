@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
-import CreateEvent from "./modules/CreateEvent.js";
+import CreateEvent from "./pages/CreateEvent.js";
 import Map from "./modules/Map.js";
 
 import NotFound from "./pages/NotFound.js";
-import Skeleton from "./pages/Skeleton.js";
 import Home from "./pages/Home.js";
 
 import "../utilities.css";
@@ -14,6 +13,7 @@ import "./App.css";
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import Timetable from "./pages/Timetable.js";
 
 /**
  * Define the "App" component as a class.
@@ -64,7 +64,8 @@ class App extends Component {
             Add <Component path = "" props />
             <Feed path="/" userId={this.state.userId} />
             <Profile path="/profile/:userId" /> */}
-            <CreateEvent path = "/addevent" ></CreateEvent>
+            <Timetable path = "/timetable" />
+            <CreateEvent path = "/addevent" />
             <Home path = "/home" />
             <Map path = "/map" />
             <NotFound default />

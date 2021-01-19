@@ -26,21 +26,17 @@ class NavBar extends Component {
             <Link to="/map" className="NavBar-link">
                 Map
             </Link>
+          {this.props.userId ? (
+            <>
             <Link to="/friends" className="NavBar-link">
-                Friends
+              Friends
             </Link>
             <Link to="/profile" className="NavBar-link">
-                Profile
+              Profile
             </Link>
             <Link to="/addevent" className="NavBar-link">
-                Add Event
+              Add Event
             </Link>
-            {/* {this.props.userId && (
-                <Link to={`/profile/${this.props.userId}`} className="NavBar-link">
-                Profile
-                </Link>
-            )} */}
-          {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
               buttonText="Logout"
@@ -48,6 +44,7 @@ class NavBar extends Component {
               onFailure={(err) => console.log(err)}
               className="NavBar-link NavBar-login"
             />
+            </>
           ) : (
             <GoogleLogin
               clientId={GOOGLE_CLIENT_ID}

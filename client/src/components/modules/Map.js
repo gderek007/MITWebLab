@@ -1,46 +1,25 @@
-import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import React, {useState} from "react";
+import ReactMapGL from "react-map-gl";
 
-const containerStyle = {
-  width: '400px',
-  height: '400px'
-};
+const API_TOKEN = "pk.eyJ1IjoibXBlcmF6YTA3MTQiLCJhIjoiY2trM2wxaXcyMTRwaTJ4cGpiaXQ3bjltNiJ9.a8AxmhpMBO7jfrD3s190Yg";
 
-const center = {
-  lat: 42.36025746273741,
-  lng: -71.09418145961277,
-};
+export default function Map() {
+const [viewport, setViewport] = useState({
+  latitude: 42.36025746273741,
+  longitude: -71.09418145961277,
+  zoom: 14,
+  width: "100vw",
+  height: "100vh",
+});
 
-function Map() {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"
-  })
-
-  const [map, setMap] = React.useState(null)
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
-
-  return isLoaded ? (
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
-  ) : <></>
+  return <div>
+    <ReactMapGL {...viewport} 
+    mapboxApiAccessToken={API_TOKEN}
+    mapStyle="mapbox://styles/mperaza0714/ckk3lrmmk0yyb17nzlv8s29er"
+    onViewportChange={viewport => {
+      setViewport(viewport);
+    }}>
+      
+    </ReactMapGL>
+  </div>
 }
-
-export default React.memo(Map)

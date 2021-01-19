@@ -40,6 +40,7 @@ class Timetable extends Component {
             description = {eventObj.description}
             interested = {eventObj.interested}
             attending = {eventObj.attending}
+            userId = {this.props.userId}
           />
         ));
       } else {

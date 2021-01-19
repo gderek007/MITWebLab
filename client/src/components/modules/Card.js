@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { get, post} from "../../utilities";
-
+import {get, post} from "../../utilities";
 import Comment from "../../../../server/models/comment.js";
+import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "./Card.css";
 import SingleEvent from "./SingleEvent.js";
+
 class Card extends Component {
     constructor(props) {
       super(props);
@@ -70,11 +71,17 @@ class Card extends Component {
             interested = {this.props.interested}
             attending = {this.props.attending}
           />
-          <label>
+          {/* <label>
             Comment
             <input type="name" onChange={this.handleChangeComment.bind(this)} value={this.state.content}/>
             <button type="submit" onClick = {this.addComment}>Submit</button>
-          </label>
+          </label> */}
+          {this.props.userId ? (
+            <label>
+              Comment
+              <input type="name" onChange={this.handleChangeComment.bind(this)} value={this.state.content}/>
+              <button type="submit" onClick = {this.addComment}>Submit</button>
+            </label>) : (<div> </div>)}
         </div>
         );
       }

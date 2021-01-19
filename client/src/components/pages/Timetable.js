@@ -14,7 +14,7 @@ class Timetable extends Component {
     }
 
     componentDidMount() {
-      document.title = "Time Table";
+      document.title = "Timetable";
       get("/api/events").then((eventObjs) => {
         let reversedEventObjs = eventObjs.reverse();
         reversedEventObjs.map((eventObj) => {

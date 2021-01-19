@@ -53,6 +53,8 @@ router.post("/comment", (req, res) => {
     content: req.body.content,
     parent: req.body.parent,
   });
+
+  newComment.save().then((comment) => res.send(comment)).catch((error) => console.log(error));
 });
 
 router.get("/comment", (req, res) => {

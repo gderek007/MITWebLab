@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { get } from "../../utilities";
+import { get, post} from "../../utilities";
+import Comment from "/Users/derek/Desktop/gderek007-Samuel-CHLam-mperaza714/server/models/comment.js";
 
 import "./Card.css";
 import SingleEvent from "./SingleEvent.js";
@@ -8,6 +9,7 @@ class Card extends Component {
       super(props);
       this.state = {
         comments: [],
+        content:'',
       };
     }
 
@@ -19,6 +21,12 @@ class Card extends Component {
       });
     }
 
+    handleChangeComment = (event) => {
+      this.setState({
+        content: event.target.value,
+      });
+    };
+
     makeCommentsReadable() {
       let comments = this.state.comments;
       let creator = "";
@@ -29,9 +37,25 @@ class Card extends Component {
       return creator;
     }
 
+    addComment = () => {
+      const body = {content: this.state.content, parent:this.props._id };
+      const newComment = new Comment({
+        creator_name: this.props.creatorName,
+        creator_id: this.props.creatorID,
+        content: this.state.content,
+        parent: this.props._id,
+      });
+
+      post("/api/comment", body).then((event) => {
+        this.setState({
+          comments: [newComment].concat(this.state.comments),
+          content: '',
+        });
+      }).catch((e) => console.log(e));
+    }
+
     render() {
       let hasComments = this.state.comments.length !== 0;
-      // if (hasComments){
       return (
         <div className="Card-container tooltip" >
             <span className="tooltiptext tooltip-inner" data-html="true">{hasComments ? this.makeCommentsReadable() : "No comments"}</span>
@@ -45,6 +69,11 @@ class Card extends Component {
             interested = {this.props.interested}
             attending = {this.props.attending}
           />
+          <label>
+            Comment
+            <input type="name" onChange={this.handleChangeComment.bind(this)} value={this.state.content}/>
+            <button type="submit" onClick = {this.addComment}>Submit</button>
+          </label>
         </div>
         );
       }

@@ -40,9 +40,13 @@ class CreateEvent extends Component {
 
     addEvent = () => {
       const body = {nameEvent: this.state.eventName, date:this.state.date, address:this.state.address, description:this.state.description, interested:0, attending:0}
-      console.log(body);
       post("/api/addevent", body).then((event) => {
-        console.log("posting");
+        this.setState({
+          eventName:"",
+          date:"",
+          address:"",
+          description:"",
+        });
       }).catch((e) => console.log(e));
     }
 

@@ -26,15 +26,17 @@ class NavBar extends Component {
             <Link to="/map" className="NavBar-link">
                 Map
             </Link>
+            {this.props.userId && (
+            <Link to={`/profile/${this.props.userId}`} className="NavBar-link">
+              Profile
+            </Link>
+            )}
           {this.props.userId ? (
             <>
             {/* We won't implement the following for now:
             <Link to="/friends" className="NavBar-link">
               Friends
             </Link> */}
-            <Link to="/profile" className="NavBar-link">
-              Profile
-            </Link>
             <Link to="/addevent" className="NavBar-link">
               Add Event
             </Link>

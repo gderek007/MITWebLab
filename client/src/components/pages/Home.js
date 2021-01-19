@@ -19,11 +19,11 @@ class Home extends Component {
                         Join! Have Fun!
                     </h2>
                     <div className="home-buttoncontainer">
-                        <Link to="/portal" className="home-button1">
+                        <Link to="/timetable" className="home-button1">
                             Event Timetable
                         </Link>
                         {this.props.userId ? (
-                        <Link to="/profile" className="home-button2">
+                        <Link to={`/profile/${this.props.userId}`} className="home-button2">
                             Your Profile
                         </Link>
                         ) : (

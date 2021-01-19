@@ -70,8 +70,13 @@ router.get("/whoami", (req, res) => {
     // not logged in
     return res.send({});
   }
-
   res.send(req.user);
+});
+
+router.get("/user", (req, res) => {
+  User.findById(req.query.userId).then((user) => {
+    res.send(user);
+  });
 });
 
 router.post("/initsocket", (req, res) => {

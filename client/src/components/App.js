@@ -65,7 +65,7 @@ class App extends Component {
             Add <Component path = "" props />
             <Feed path="/" userId={this.state.userId} />
             <Profile path="/profile/:userId"/>*/}
-            <Profile path="/profile"/>
+            <Profile path="/profile/:userId"/>
             <Timetable path = "/timetable" userId={this.state.userId}/>
             <CreateEvent path = "/addevent" />
             <Home path = "/home" />

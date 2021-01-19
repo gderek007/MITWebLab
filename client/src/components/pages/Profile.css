@@ -1,0 +1,17 @@
+.profile-container {
+    height: 91.7vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.profile-left {
+    height: 100%;
+    padding: 24px 3vw 24px 3vw;
+    background-color: var(--red)
+}
+
+.profile-right {
+    height: 100%;
+    padding: 24px 3vw 24px 3vw;
+}

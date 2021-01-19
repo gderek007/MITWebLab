@@ -6,6 +6,8 @@ import Map from "./modules/Map.js";
 
 import NotFound from "./pages/NotFound.js";
 import Home from "./pages/Home.js";
+import Timetable from "./pages/Timetable.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 import "./App.css";
@@ -13,7 +15,6 @@ import "./App.css";
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
-import Timetable from "./pages/Timetable.js";
 
 /**
  * Define the "App" component as a class.
@@ -63,7 +64,8 @@ class App extends Component {
             {/* 
             Add <Component path = "" props />
             <Feed path="/" userId={this.state.userId} />
-            <Profile path="/profile/:userId" /> */}
+            <Profile path="/profile/:userId"/>*/}
+            <Profile path="/profile"/>
             <Timetable path = "/timetable" userId={this.state.userId}/>
             <CreateEvent path = "/addevent" />
             <Home path = "/home" />

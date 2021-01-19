@@ -24,7 +24,8 @@
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
-  --red: #FF6D6D;
+  /*--red: opacify(#FF6D6D,0.8); */
+  --red: rgba(255, 176, 186, 0.8);
   --green: #219653;
 
   --xs: 4px;

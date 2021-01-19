@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { get, post} from "../../utilities";
-import Comment from "/Users/derek/Desktop/gderek007-Samuel-CHLam-mperaza714/server/models/comment.js";
+
+import Comment from "../../../../server/models/comment.js";
 
 import "./Card.css";
 import SingleEvent from "./SingleEvent.js";

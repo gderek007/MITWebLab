@@ -73,6 +73,14 @@ form {
   text-align: center;
 }
 
+.u-textLeft {
+  text-align: left;
+}
+
+.u-textRight {
+  text-align: right;
+}
+
 .u-relative {
   position: relative;
 }

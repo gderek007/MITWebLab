@@ -15,15 +15,12 @@ class Timetable extends Component {
 
     componentDidMount() {
       document.title = "Time Table";
-      console.log("event request");
       get("/api/events").then((eventObjs) => {
         let reversedEventObjs = eventObjs.reverse();
         reversedEventObjs.map((eventObj) => {
-          console.log(eventObj);
           this.setState({ events: this.state.events.concat([eventObj]) });
         });
       });
-      console.log("event request done");
     }
 
     render() {
@@ -35,8 +32,8 @@ class Timetable extends Component {
           <Card
             key={`Card_${eventObj._id}`}
             _id={eventObj._id}
-            creator_name={eventObj.host}
-            creator_id={eventObj.host_id}
+            creatorName={eventObj.host}
+            creatorID={eventObj.host_id}
             nameEvent = {eventObj.nameEvent}
             date = {eventObj.date}
             address = {eventObj.address}

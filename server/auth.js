@@ -24,14 +24,14 @@ function getOrCreateUser(user) {
     if (existingUser) return existingUser;
 
     const newUser = new User({
-      name: user.name,
       googleid: user.sub,
-      rating: 10,
-      image_id: user.image_id,
-      based: user.based,
-      email: user.email,
-      events: [],
-      facebook_name: user.facebook_name
+      name: user.name,
+      user_nickname: "add a nickname!",
+      rating: 0,
+      image_id: "",
+      based: "Where are you based?",
+      email: "What is your email?",
+      facebook_name: "What is your facebook?",
     });
 
     return newUser.save();

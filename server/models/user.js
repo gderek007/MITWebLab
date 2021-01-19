@@ -8,7 +8,6 @@ const UserSchema = new mongoose.Schema({
   image_id: String,
 	based: String,
   email: String,
-  events: Array,
  	facebook_name: String,
 });
 

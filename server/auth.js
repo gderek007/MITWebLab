@@ -30,6 +30,7 @@ function getOrCreateUser(user) {
       image_id: user.image_id,
       based: user.based,
       email: user.email,
+      events: [],
       facebook_name: user.facebook_name
     });
 

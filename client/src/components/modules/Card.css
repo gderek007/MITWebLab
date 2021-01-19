@@ -1,0 +1,50 @@
+.Card-container {
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--m);
+    margin-right: var(--l);
+  }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  .tooltip-inner {
+    white-space: pre-line;
+}
+  
+.Card-event,
+
+.Card-eventTitle {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+.Card-eventUser {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.Card-eventContent {
+  font-size: 40px;
+  margin: var(--s) 0 0;
+}

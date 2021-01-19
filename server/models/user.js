@@ -7,7 +7,8 @@ const UserSchema = new mongoose.Schema({
   rating: Number,
   image_id: String,
 	based: String,
-	email: String,
+  email: String,
+  events: Array,
  	facebook_name: String,
 });
 

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
+import "./SingleEvent.css";
 /**
  * Story is a component that renders creator and content of a story
  *
  * Proptypes
- * @param {string} creator_name
+ * @param {string} creatorName
  * @param {string} creator_id
  * @param {string} nameEvent 
  * @param {string} date
@@ -35,18 +35,31 @@ class SingleEvent extends Component {
       this.attending -= 1;
     }
 
+    formatDate = (dateString) => {
+      const options = { year: "numeric", month: "long", day: "numeric" }
+      return new Date(dateString).toLocaleDateString(undefined, options) + " "
+    }
+
     render() {
       return (
       <div className = "Card-event">
+        <div className = "Card-eventTitle " >
+        {this.props.nameEvent + " "}
+          <div className = "Card-eventUser u-inlineBlock ">
+          By: {this.props.creatorName}
+          </div>
+        </div>
+        
+        <div className = "u-textLeft">
+        {this.props.address + " on "}
+        {this.formatDate(this.props.date)}
+        {" Interested: " + this.props.interested}
+        {" Going: " + this.props.attending}
+        </div>
         <p>
-        {this.props.creatorName}
-        {this.props.nameEvent}
-        {this.props.date}
-        {this.props.address}
         {this.props.description}
-        {this.props.interested}
-        {this.props.attending}
         </p>
+        
       </div>
       );
     }

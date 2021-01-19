@@ -12,6 +12,7 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 const Event = require("./models/event");
+const Comment = require("./models/comment");
 
 
 // import authentication library
@@ -52,8 +53,6 @@ router.post("/comment", (req, res) => {
     content: req.body.content,
     parent: req.body.parent,
   });
-
-  newComment.save().then((comment) => res.send(comment));
 });
 
 router.get("/comment", (req, res) => {

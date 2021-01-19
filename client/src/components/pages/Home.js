@@ -22,15 +22,6 @@ class Home extends Component {
                         <Link to="/portal" className="home-button1">
                             Event Timetable
                         </Link>
-                        {/* <button className="home-button1">
-                            Event Timetable
-                        </button> */}
-                        {/* <button className="home-button2">
-                            Your Profile
-                        </button> */}
-                        {/* <Link to="/login" className="home-button2">
-                            Your Profile
-                        </Link> */}
                         {this.props.userId ? (
                         <Link to="/profile" className="home-button2">
                             Your Profile

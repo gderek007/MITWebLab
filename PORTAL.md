@@ -1,23 +1,13 @@
 # DMS
 
 ## Due:
-- Colors
-- Font
-- Name
-- Logo
-- More Features
-- Page Setup <br>
-**Milestone 1 (7/1)**
-
-- Collect Event List
-- Create MIT Map
-- Create Google Map
-
-- Navigator Bar
-- Login Page
-- Icon
-- ... <br>
-**Milestone 2 (19/1)**
+- Fix bug for updating events
+- CSS background for home page
+- CSS for event cards
+- CSS for the page entering details etc.
+- Changing data structure for event to record people who join
+- Map display cards
+- Friends section
 
 (I don't know what task remains so you fill it up)
 

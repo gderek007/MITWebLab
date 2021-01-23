@@ -4,11 +4,14 @@ import "./SingleEvent.css";
  * Story is a component that renders creator and content of a story
  *
  * Proptypes
- * @param {string} creatorName
- * @param {string} creator_id
+ * @param {string} host
+ * @param {string} hostId
  * @param {string} nameEvent 
- * @param {string} date
+ * @param {Date} start
+ * @param {Date} end
  * @param {string} address
+ * @param {string} link
+ * @param {string} isOnline (online_event)
  * @param {string} description
  * @param {number} interested
  * @param {number} attending
@@ -45,17 +48,29 @@ class SingleEvent extends Component {
       <div className = "Card-event">
         <div className = "Card-eventTitle " >
         {this.props.nameEvent + " "}
-          <div className = "Card-eventUser u-inlineBlock ">
-          By: {this.props.creatorName}
+          <div className = "Card-eventUser u-inlineBlock">
+          By: {this.props.host}
           </div>
         </div>
         
         <div className = "u-textLeft">
-        {this.props.address + " on "}
-        {this.formatDate(this.props.date)}
-        {" Interested: " + this.props.interested}
-        {" Going: " + this.props.attending}
+          Starting on {this.formatDate(this.props.start)}, 
+          finishing on {this.formatDate(this.props.end)}.
         </div>
+        <div className = "u-textLeft">
+          Link: {this.props.link}
+        </div>
+        <div className = "u-textLeft">
+          Address: {this.props.address}
+        </div>
+        {this.props.isOnline ? (
+          <div>
+            This is an online event.
+          </div> ) : (<> </>)}
+        <p>
+          {" Interested: " + this.props.interested}
+          {" Going: " + this.props.attending}
+        </p>
         <p>
         {this.props.description}
         </p>

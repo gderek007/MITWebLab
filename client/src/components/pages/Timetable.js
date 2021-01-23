@@ -32,11 +32,14 @@ class Timetable extends Component {
           <Card
             key={`Card_${eventObj._id}`}
             _id={eventObj._id}
-            creatorName={eventObj.host}
-            creatorID={eventObj.host_id}
+            host={eventObj.host}
+            hostID={eventObj.host_id}
             nameEvent = {eventObj.nameEvent}
-            date = {eventObj.date}
+            start = {eventObj.start}
+            end = {eventObj.end}
             address = {eventObj.address}
+            link = {eventObj.link}
+            online_event = {eventObj.online_event}
             description = {eventObj.description}
             interested = {eventObj.interested}
             attending = {eventObj.attending}

@@ -62,11 +62,14 @@ class Card extends Component {
         <div className="Card-container tooltip" >
             <span className="tooltiptext tooltip-inner" data-html="true">{hasComments ? this.makeCommentsReadable() : "No comments"}</span>
           <SingleEvent 
-            creatorName={this.props.creatorName}
-            creatorId={this.props.creatorId}
+            host={this.props.host}
+            hostId={this.props.hostId}
             nameEvent = {this.props.nameEvent}
-            date = {this.props.date}
+            start = {this.props.start}
+            end = {this.props.end}
             address = {this.props.address}
+            link = {this.props.link}
+            isOnline = {this.props.online_event}
             description = {this.props.description}
             interested = {this.props.interested}
             attending = {this.props.attending}

@@ -4,7 +4,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../../images/party01.jpg");
     background-repeat: no-repeat; 
     background-position: 100% 0;
-    background-size: 100vw;
+    background-size: cover;
 }
 
 .home-bodycontainer {

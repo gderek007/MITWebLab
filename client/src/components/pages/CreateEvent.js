@@ -7,10 +7,13 @@ class CreateEvent extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        eventName:"",
-        date:"",
-        address:"",
-        description:"",
+        eventName: "",
+        start: "",
+        end: "",
+        online_event: false,
+        address: "",
+        link: "",
+        description: "",
       };
     }
 
@@ -20,12 +23,30 @@ class CreateEvent extends Component {
       });
     };
 
-    handleChangeDate = (event) => {
+    handleChangeStart = (event) => {
       this.setState({
-        date: event.target.value,
+        start: event.target.value,
       });
     };
 
+    handleChangeEnd = (event) => {
+      this.setState({
+        end: event.target.value,
+      });
+    };
+
+    handleChangeOnline = (event) => {
+      this.setState({
+        online_event: event.target.checked,
+      });
+    };
+
+    handleChangeLink = (event) => {
+      this.setState({
+        link: event.target.value,
+      });
+    };
+    
     handleChangeAddress = (event) => {
       this.setState({
         address: event.target.value,
@@ -39,12 +60,24 @@ class CreateEvent extends Component {
     };
 
     addEvent = () => {
-      const body = {nameEvent: this.state.eventName, date:this.state.date, address:this.state.address, description:this.state.description, interested:0, attending:0}
+      const body = {
+        nameEvent: this.state.eventName, 
+        start: this.state.start,
+        end: this.state.end,
+        online_event: this.state.online_event, 
+        address: this.state.address, 
+        link: this.state.link,
+        description: this.state.description, 
+        interested: 0, 
+        attending: 0}
       post("/api/addevent", body).then((event) => {
         this.setState({
           eventName:"",
-          date:"",
+          start:"",
+          end:"",
+          online_event:false,
           address:"",
+          link:"",
           description:"",
         });
       }).catch((e) => console.log(e));
@@ -55,24 +88,54 @@ class CreateEvent extends Component {
         <form>  
           <label>
             Event Name
-            <input type="name" onChange={this.handleChangeEvent.bind(this)} value={this.state.eventName} />
+            <input type="name" 
+            onChange={this.handleChangeEvent.bind(this)} 
+            value={this.state.eventName} />
           </label>
   
           <label>
-            address
-            <input type="address" onChange={this.handleChangeAddress.bind(this)} value={this.state.address} />
+            Start Time
+            <input type="date" 
+            onChange={this.handleChangeStart.bind(this)} 
+            value={this.state.start} />
           </label>
-  
+
           <label>
-            Date
-            <input type="date" onChange={this.handleChangeDate.bind(this)} value={this.state.date} />
+            End Time
+            <input type="date" 
+            onChange={this.handleChangeEnd.bind(this)} 
+            value={this.state.end} />
+          </label>
+
+          <label>
+            Online?
+              <input type="checkbox" 
+              checked={this.state.online_event}
+              onChange={this.handleChangeOnline}
+              />
+          </label>
+
+          <label>
+            Link
+            <input type="link" 
+            onChange={this.handleChangeLink.bind(this)} 
+            value={this.state.link} />
+          </label>
+
+          <label>
+            Address
+            <input type="address" 
+            onChange={this.handleChangeAddress.bind(this)} 
+            value={this.state.address} />
           </label>
 
           <label>
             Description
-            <input type="description" onChange={this.handleChangeDescription.bind(this)} value={this.state.description} />
+            <input type="description" 
+            onChange={this.handleChangeDescription.bind(this)} 
+            value={this.state.description} />
           </label>
-  
+
           <button type="submit" onClick = {this.addEvent}>Submit</button>
         </form>
       );

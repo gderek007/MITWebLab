@@ -1,15 +1,7 @@
 # DMS
 
 ## Due:
-- Fix bug for updating events
-- CSS background for home page
-- CSS for event cards
-- CSS for the page entering details etc.
-- Changing data structure for event to record people who join
-- Map display cards
-- Friends section
-
-(I don't know what task remains so you fill it up)
+https://docs.google.com/document/d/1srwAhuomFinLaIisR_qFlpXx3Co91E2vTmi-NHAQkgo/edit?usp=sharing
 
 ## Important Links:
 1. Official Milestones: https://weblab.mit.edu/about/#milestones

@@ -22,6 +22,8 @@ const EventSchema = new mongoose.Schema({
     link: String,
     online_event: Boolean,
     description: String,
+    lat: Number,
+    lng: Number,
     // interested: Array,
     // attending: Array,
     interested: Number,

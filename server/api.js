@@ -37,6 +37,8 @@ router.post("/addevent", (req, res) => {
     description: req.body.description,
     interested: req.body.interested,
     attending: req.body.attending,
+    lat: req.body.lat,
+    lng: req.body.lng,
   });
   
   newEvent.save().then((event) => res.send(event)).catch((error) => console.log(error));

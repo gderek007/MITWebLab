@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import "./CreateEvent.css";
 import { post } from "../../utilities";
+import MapboxAutocomplete from 'react-mapbox-autocomplete';
+
+const API_TOKEN = "pk.eyJ1IjoibXBlcmF6YTA3MTQiLCJhIjoiY2trM2wxaXcyMTRwaTJ4cGpiaXQ3bjltNiJ9.a8AxmhpMBO7jfrD3s190Yg";
+
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -12,10 +16,13 @@ class CreateEvent extends Component {
         end: "",
         online_event: false,
         address: "",
+        lat: "",
+        lng: "",
         link: "",
         description: "",
       };
     }
+
 
     handleChangeEvent = (event) => {
       this.setState({
@@ -47,11 +54,19 @@ class CreateEvent extends Component {
       });
     };
     
-    handleChangeAddress = (event) => {
+    handleChangeAddress(address,lat,lng) {
       this.setState({
-        address: event.target.value,
+        address: address,
+        lat: lat,
+        lng: lng
       });
-    };
+    }
+
+    // handleChangeAddress = (event) => {
+    //   this.setState({
+    //     address: event.target.value,
+    //   });
+    // };
 
     handleChangeDescription = (event) => {
       this.setState({
@@ -66,6 +81,8 @@ class CreateEvent extends Component {
         end: this.state.end,
         online_event: this.state.online_event, 
         address: this.state.address, 
+        lat: this.state.lat,
+        lng: this.state.lng,
         link: this.state.link,
         description: this.state.description, 
         interested: 0, 
@@ -84,28 +101,37 @@ class CreateEvent extends Component {
       }).catch((e) => console.log(e));
     }
 
+    _suggestionSelect = (address, lat, lng, text) => {
+      this.setState({
+        address: address,
+        lat: lat,
+        lng: lng
+      });
+    }
+
     render() {
       return (
         <form>  
+
           <label>
-            Event Name
             <input type="name" 
             onChange={this.handleChangeEvent.bind(this)} 
-            value={this.state.eventName} />
+            value={this.state.eventName} 
+            placeholder = {"Event Name"}/>
           </label>
   
           <label>
-            Start Time
             <input type="date" 
             onChange={this.handleChangeStart.bind(this)} 
-            value={this.state.start} />
+            value={this.state.start} 
+            placeholder = {"Start Time"}/>
           </label>
 
           <label>
-            End Time
             <input type="date" 
             onChange={this.handleChangeEnd.bind(this)} 
-            value={this.state.end} />
+            value={this.state.end} 
+            placeholder = {"Endd Time"}/>
           </label>
 
           <label>
@@ -117,24 +143,25 @@ class CreateEvent extends Component {
           </label>
 
           <label>
-            Link
             <input type="link" 
             onChange={this.handleChangeLink.bind(this)} 
-            value={this.state.link} />
+            value={this.state.link}
+            placeholder = {"Link"} />
           </label>
 
           <label>
-            Address
-            <input type="address" 
-            onChange={this.handleChangeAddress.bind(this)} 
-            value={this.state.address} />
+          <MapboxAutocomplete publicKey = {API_TOKEN}
+            inputClass='form-control search'
+            onSuggestionSelect={this._suggestionSelect}
+            country='us'
+            resetSearch={false}/>
           </label>
 
           <label>
-            Description
             <input type="description" 
             onChange={this.handleChangeDescription.bind(this)} 
-            value={this.state.description} />
+            value={this.state.description}
+            placeholder = {"Description"} />
           </label>
 
           <button type="submit" onClick = {this.addEvent}>Submit</button>

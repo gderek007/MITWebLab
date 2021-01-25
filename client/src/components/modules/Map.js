@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ReactMapGL, {Marker, Popup} from "react-map-gl";
+import ReactMapGL, {Marker, Popup, LinearInterpolator, FlyToInterpolator} from "react-map-gl";
 import { get } from "../../utilities";
 
 import "./Map.css";
@@ -14,8 +14,8 @@ class Map extends Component {
         latitude: 42.35531356439811, 
         longitude: -71.09148101699134,
         zoom: 14,
-        width: "100vw",
-        height: "100vh",
+        width: "99vw",
+        height: "89vh",
       },
       events: [],
       selectedEvent: null,
@@ -43,13 +43,22 @@ class Map extends Component {
         {this.state.events.map(eventObj => (
           <Marker 
             key={eventObj._id} 
-            latitude={42.35531356439811} 
-            longitude={-71.09148101699134}
+            latitude={eventObj.lat} 
+            longitude={eventObj.lng}
           >
             <button 
               className="marker-btn" 
               onClick={(e) => {
                 e.preventDefault();
+                const viewport = {
+                    ...this.state.viewport,
+                    longitude: eventObj.lng,
+                    latitude: eventObj.lat,
+                    zoom: 15,
+                    transitionDuration: 1000,
+                    transitionInterpolator: new FlyToInterpolator(),
+                };
+                this.setState({viewport});
                 this.setState({selectedEvent: eventObj});
               }}
             >
@@ -60,8 +69,8 @@ class Map extends Component {
 
         {this.state.selectedEvent ? (
           <Popup 
-            latitude={42.35531356439811} 
-            longitude={-71.09148101699134}
+            latitude={this.state.selectedEvent.lat} 
+            longitude={this.state.selectedEvent.lng}
             onClose={() => {
               this.setState({selectedEvent: null});
             }}

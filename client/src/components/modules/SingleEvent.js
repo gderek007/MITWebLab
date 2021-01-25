@@ -25,7 +25,7 @@ class SingleEvent extends Component {
     }
 
     formatDate = (dateString) => {
-      const options = { year: "numeric", month: "long", day: "numeric" }
+      const options = { year: "numeric", month: "long", day: "numeric", weekday: "short", hour: "numeric", minute: "numeric"}
       return new Date(dateString).toLocaleDateString(undefined, options) + " "
     }
 

@@ -82,6 +82,30 @@ router.get("/user", (req, res) => {
   });
 });
 
+router.post("/userevents", (req,res) => {
+  console.log("Posting for userevents");
+  User.updateOne({_id: req.user}, {$set : 
+    {"events_interested": req.body.events_interested,
+    "events_attending": req.body.events_attending
+    } 
+  }).then((page) => {res.send(page)});
+});
+
+router.post("/interested", (req, res) => {
+  console.log("Posting for userevents");
+  Event.updateOne({_id: req.body.eventId}, {$inc : 
+    {"interested": req.body.amount}
+  }).then((page) => {res.send(page)});
+});
+
+router.post("/attending", (req, res) => {
+  console.log("Posting for userevents");
+  Event.updateOne({_id: req.body.eventId}, {$inc : 
+    {"attending": req.body.amount}
+  }).then((page) => {res.send(page)});
+});
+
+
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
   if (req.user) socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));

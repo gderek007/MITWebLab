@@ -69,7 +69,8 @@ class CreateEvent extends Component {
         link: this.state.link,
         description: this.state.description, 
         interested: 0, 
-        attending: 0}
+        attending: 1}
+        
       post("/api/addevent", body).then((event) => {
         this.setState({
           eventName:"",

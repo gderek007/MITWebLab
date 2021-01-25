@@ -12,6 +12,8 @@ class Card extends Component {
       this.state = {
         comments: [],
         content:'',
+        attending: false,
+        going:false,
       };
     }
 
@@ -19,6 +21,12 @@ class Card extends Component {
       get("/api/comment", { parent: this.props._id }).then((comment) => {
         this.setState({
           comments: comment,
+        });
+      });
+
+      get("/api/events", { parent: this.props._id }).then((comment) => {
+        this.setState({
+          
         });
       });
     }
@@ -62,8 +70,8 @@ class Card extends Component {
         <div className="Card-container tooltip" >
             <span className="tooltiptext tooltip-inner" data-html="true">{hasComments ? this.makeCommentsReadable() : "No comments"}</span>
           <SingleEvent 
-            host={this.props.host}
-            hostId={this.props.hostId}
+            host = {this.props.host}
+            hostId = {this.props.hostId}
             nameEvent = {this.props.nameEvent}
             start = {this.props.start}
             end = {this.props.end}
@@ -73,6 +81,8 @@ class Card extends Component {
             description = {this.props.description}
             interested = {this.props.interested}
             attending = {this.props.attending}
+            userId = {this.props.userId}
+            _id = {this.props._id}
           />
           {/* <label>
             Comment

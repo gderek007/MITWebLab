@@ -32,6 +32,8 @@ function getOrCreateUser(user) {
       based: "Where are you based?",
       email: "What is your email?",
       facebook_name: "What is your facebook?",
+      events_interested: [],
+      events_attending: [],
     });
 
     return newUser.save();

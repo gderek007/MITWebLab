@@ -8,7 +8,9 @@ const UserSchema = new mongoose.Schema({
   image_id: String,
 	based: String,
   email: String,
- 	facebook_name: String,
+  facebook_name: String,
+  events_interested: [String],
+  events_attending: [String]
 });
 
 // compile model from schema

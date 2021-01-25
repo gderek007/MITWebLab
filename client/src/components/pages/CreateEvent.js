@@ -114,7 +114,6 @@ class CreateEvent extends Component {
     render() {
       return (
         <form>  
-
           <label>
             <input type="name" 
             onChange={this.handleChangeEvent.bind(this)} 
@@ -123,10 +122,6 @@ class CreateEvent extends Component {
           </label>
   
           <label>
-            {/* <input type="date" 
-            onChange={this.handleChangeStart.bind(this)} 
-            value={this.state.start} 
-            placeholder = {"Start Time"}/> */}
             <DateTimePicker
               onChange={this.handleChangeStart.bind(this)} 
               value={this.state.start}
@@ -134,10 +129,6 @@ class CreateEvent extends Component {
           </label>
 
           <label>
-            {/* <input type="date" 
-            onChange={this.handleChangeEnd.bind(this)} 
-            value={this.state.end} 
-            placeholder = {"End Time"}/> */}
             <DateTimePicker
               onChange={this.handleChangeEnd.bind(this)} 
               value={this.state.end}

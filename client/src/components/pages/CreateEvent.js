@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import "./CreateEvent.css";
 import { post } from "../../utilities";
 import MapboxAutocomplete from 'react-mapbox-autocomplete';
+import "react-datetime/css/react-datetime.css";
+import DateTimePicker from "react-datetime-picker";
 
 const API_TOKEN = "pk.eyJ1IjoibXBlcmF6YTA3MTQiLCJhIjoiY2trM2wxaXcyMTRwaTJ4cGpiaXQ3bjltNiJ9.a8AxmhpMBO7jfrD3s190Yg";
 
@@ -12,8 +14,8 @@ class CreateEvent extends Component {
       super(props);
       this.state = {
         eventName: "",
-        start: "",
-        end: "",
+        start: null,
+        end: null,
         online_event: false,
         address: "",
         lat: "",
@@ -30,15 +32,15 @@ class CreateEvent extends Component {
       });
     };
 
-    handleChangeStart = (event) => {
+    handleChangeStart = (value) => {
       this.setState({
-        start: event.target.value,
+        start: value,
       });
     };
 
-    handleChangeEnd = (event) => {
+    handleChangeEnd = (value) => {
       this.setState({
-        end: event.target.value,
+        end: value,
       });
     };
 
@@ -121,17 +123,25 @@ class CreateEvent extends Component {
           </label>
   
           <label>
-            <input type="date" 
+            {/* <input type="date" 
             onChange={this.handleChangeStart.bind(this)} 
             value={this.state.start} 
-            placeholder = {"Start Time"}/>
+            placeholder = {"Start Time"}/> */}
+            <DateTimePicker
+              onChange={this.handleChangeStart.bind(this)} 
+              value={this.state.start}
+            />
           </label>
 
           <label>
-            <input type="date" 
+            {/* <input type="date" 
             onChange={this.handleChangeEnd.bind(this)} 
             value={this.state.end} 
-            placeholder = {"Endd Time"}/>
+            placeholder = {"End Time"}/> */}
+            <DateTimePicker
+              onChange={this.handleChangeEnd.bind(this)} 
+              value={this.state.end}
+            />
           </label>
 
           <label>

@@ -55,7 +55,7 @@ class Map extends Component {
                 const markerViewport = {
                     ...this.state.viewport,
                     longitude: eventObj.lng,
-                    latitude: eventObj.lat,
+                    latitude: eventObj.lat + .002,
                     zoom: 15,
                     transitionDuration: 1000,
                     transitionInterpolator: new FlyToInterpolator(),
@@ -88,6 +88,8 @@ class Map extends Component {
           >
             <div>
               <h1>{this.state.selectedEvent.nameEvent}</h1>
+              <h3>{this.state.selectedEvent.interested} Interested</h3>
+              <h2>{this.state.selectedEvent.address}</h2>
               <p>{this.state.selectedEvent.description}</p>
             </div>
           </Popup>

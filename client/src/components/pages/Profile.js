@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 import Card from "../modules/Card.js";
 import "./Profile.css";
 import Timetable from "./Timetable";
-import ProfileLeft from "./ProfileLeft.js"
+import ProfileLeft from "../modules/ProfileLeft.js"
 
 /**
  * Component to render profile page

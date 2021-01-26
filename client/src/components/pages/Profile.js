@@ -5,6 +5,7 @@ import Card from "../modules/Card.js";
 import "./Profile.css";
 // import Timetable from "./Timetable";
 import EventList from "../modules/EventList.js"
+import ProfileLeft from "./ProfileLeft.js"
 
 /**
  * Component to render profile page
@@ -19,6 +20,7 @@ class Profile extends Component {
     this.state = {
         user: undefined,
         events: [],
+        edit: Boolean(false),
       };
   }
 
@@ -35,6 +37,15 @@ class Profile extends Component {
     this.getUserData();    
     this.getEventsData();
   }
+
+  onClick = () => {
+    console.log("Clicked");
+    if (this.state.edit) {
+      this.setState({edit: Boolean(false)});
+    } else {
+      this.setState({edit: Boolean(true)});
+    }
+  }
   
   render() {
     let host_event = this.state.events.filter(event => event.host_id === this.props.userId);
@@ -47,7 +58,7 @@ class Profile extends Component {
 
     return (
       <div className="profile-container">
-        <div className="profile-left">
+        {/* <div className="profile-left">
             <div className="profile-left-names">
                 <h1 className="profile-nomargin"> {this.state.user.name} </h1>
                 <h3 className="profile-nomargin"> {this.state.user.user_nickname} </h3>
@@ -58,6 +69,21 @@ class Profile extends Component {
                 <p className="profile-nomargin"> Email: {this.state.user.email} </p>
                 <p className="profile-nomargin"> Facebook Name: {this.state.user.facebook_name} </p>
             </div>
+        </div> */}
+        <div className="profile-left">
+          <div>
+          { this.state.edit ? (<p> editing </p>) :
+            (<ProfileLeft user={this.state.user}/>)
+          }
+          </div>
+          <div className="profile-left-boxes">
+              { this.state.edit ? (
+                <button type="submit" onClick={this.onClick}> Submit </button>
+              ) : (
+                <button type="submit" onClick={this.onClick}> Edit Profile </button>
+              )}
+              
+          </div>
         </div>
         <div className="profile-right">
           <div>

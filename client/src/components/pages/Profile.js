@@ -38,7 +38,7 @@ class Profile extends Component {
   render() {
     let events_host = this.state.events.filter(event => event.host_id === this.props.userId);
     let eventsList_host = null;
-    let events_attend = this.state.events;
+    let events_attend = this.state.events.filter(event => this.state.user.events_attending.includes(event._id));
     let eventsList_attend = null;
 
     if (!this.state.user) {

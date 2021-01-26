@@ -5,6 +5,7 @@ import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "./Card.css";
 import SingleEvent from "./SingleEvent.js";
+import SingleComment from "./SingleComment.js";
 
 class Card extends Component {
     constructor(props) {
@@ -59,10 +60,11 @@ class Card extends Component {
     }
 
     render() {
+      let comments = this.state.comments;
       let hasComments = this.state.comments.length !== 0;
       return (
         <div className="Card-container tooltip" >
-            <span className="tooltiptext tooltip-inner" data-html="true">{hasComments ? this.makeCommentsReadable() : "No comments"}</span>
+            {/* <span className="tooltiptext tooltip-inner" data-html="true">{hasComments ? this.makeCommentsReadable() : "No comments"}</span> */}
           <SingleEvent 
             host = {this.props.host}
             hostId = {this.props.hostId}
@@ -78,6 +80,18 @@ class Card extends Component {
             userId = {this.props.userId}
             _id = {this.props._id}
           />
+          <div>
+            {/* this.makeCommentsReadable() */}
+            {comments.map((comment) => (
+              <SingleComment
+                key={`SingleComment_${comment._id}`}
+                _id={comment._id}
+                creator_name={comment.creator_name}
+                creator_id={comment.creator_id}
+                content={comment.content}
+              />
+          ))}
+          </div>
           {this.props.userId ? (
             <label>
               Comment

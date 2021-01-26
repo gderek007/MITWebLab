@@ -94,16 +94,10 @@ class Profile extends Component {
             </div>
           <div>
             <h2>Events you are Interested in 🤔</h2>
-            
-            <Timetable
-            userId = {this.props.userId}
-            eventsInterested = {this.state.user.events_interested}
-            />
           </div>
             <span> </span>
         </div>
       </div>
-      
     );
   }
 }

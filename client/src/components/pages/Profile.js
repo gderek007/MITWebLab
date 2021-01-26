@@ -37,9 +37,9 @@ class Profile extends Component {
   }
   
   render() {
-    let events_host = this.state.events.filter(event => event.host_id === this.props.userId);
-    let events_attend = this.state.events.filter(event => this.state.user.events_attending.includes(event._id));
-    let events_interested = this.state.events.filter(event => this.state.user.events_interested.includes(event._id));
+    let host_event = this.state.events.filter(event => event.host_id === this.props.userId);
+    let attend_event = this.state.events.filter(event => this.state.user.events_attending.includes(event._id));
+    let interest_event = this.state.events.filter(event => this.state.user.events_interested.includes(event._id));
 
     if (!this.state.user) {
         return <div> Loading! </div>;
@@ -64,7 +64,7 @@ class Profile extends Component {
             <h2> Events you are Hosting! </h2>
               <EventList 
                 userId={this.props.userId} 
-                events={events_host}
+                events={host_event}
                 ishost={Boolean(true)}
                 null_msg={"You haven't hosted any events"}
               />
@@ -73,7 +73,7 @@ class Profile extends Component {
             <h2>Events you are Attending!</h2>
             <EventList 
                 userId={this.props.userId} 
-                events={events_attend}
+                events={attend_event}
                 ishost={Boolean(false)}
                 null_msg={"You haven't attended any events"}
               />
@@ -82,7 +82,7 @@ class Profile extends Component {
             <h2>Events you are Interested in 🤔</h2>
             <EventList 
                 userId={this.props.userId} 
-                events={events_interested}
+                events={interest_event}
                 ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
               />

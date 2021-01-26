@@ -22,6 +22,7 @@ class EventList extends Component {
         if (this.props.events.length!==0) {
           eventsList = this.props.events.map((eventObj) => (
             <Card
+              event_Id = {eventObj._id}
               key={`SingleEvent_${eventObj._id}`}
               eventObj = {eventObj}
               userId = {this.props.userId}

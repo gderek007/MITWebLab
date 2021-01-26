@@ -19,7 +19,7 @@ class Card extends Component {
     }
 
     componentDidMount() {
-      get("/api/comment", { parent: this.props._id }).then((comment) => {
+      get("/api/comment", { parent: this.props.event_Id }).then((comment) => {
         this.setState({
           comments: comment,
         });

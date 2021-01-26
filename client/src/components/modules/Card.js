@@ -13,7 +13,7 @@ class Card extends Component {
         comments: [],
         content:'',
         attending: false,
-        going:false,
+        going: false,
       };
     }
 
@@ -78,6 +78,7 @@ class Card extends Component {
             userId = {this.props.userId}
             _id = {this.props._id}
             eventObj = {this.props.eventObj}
+            ishost = {this.props.ishost}
           />
           {this.props.userId ? (
             <label>

@@ -45,6 +45,7 @@ class Timetable extends Component {
             attending = {eventObj.attending}
             userId = {this.props.userId}
             eventObj = {eventObj}
+            ishost = {Boolean(false)}
           />
         ));
       } else {

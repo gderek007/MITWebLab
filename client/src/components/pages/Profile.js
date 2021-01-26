@@ -67,6 +67,7 @@ class Profile extends Component {
             interested = {eventObj.interested}
             attending = {eventObj.attending}
             userId = {this.props.userId}
+            ishost = {Boolean(true)}
           />
         ));
       } else {

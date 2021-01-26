@@ -53,12 +53,13 @@ class SingleEvent extends Component {
           <div>
             This is an online event.
           </div> ) : (<> </>)}
-        <GoingInterested 
+        {this.props.ishost ? (<p> Change events </p>) :
+        (<GoingInterested 
           interested = {this.props.interested}
           attending = {this.props.attending}
           userId = {this.props.userId}
           eventId = {this.props._id}
-          eventObj = {this.props.eventObj}/>
+          eventObj = {this.props.eventObj} />)}
         <p>
         {this.props.description}
         </p>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import Card from "../modules/Card";
 import { get } from "../../utilities";
 import EventList from "../modules/EventList.js";
 

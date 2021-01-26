@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import "../pages/Profile.css";
 
+/**
+ * Profile Left is a component in profile displaying personal detail
+ * of a user.
+ *
+ * Proptypes
+ * @param {user} user
+ */
+
 class ProfileLeft extends Component {
     constructor(props) {
       super(props);

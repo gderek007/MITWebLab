@@ -79,6 +79,7 @@ class Card extends Component {
             attending = {this.props.attending}
             userId = {this.props.userId}
             _id = {this.props._id}
+            eventObj = {this.props.eventObj}
           />
           <div>
             {/* this.makeCommentsReadable() */}

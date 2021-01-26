@@ -14,12 +14,13 @@ class GoingInterested extends Component {
           userId: this.props.userId,
           eventId: this.props.eventId,
           eventsAttending: [],
-          eventsInterested: []
+          eventsInterested: [],
+          eventObj: this.props.eventObj,
         };
       }
 
     componentDidMount() {
-        get("api/user", { userId: this.props.userId }).then((user) => {
+        get("/api/user", { userId: this.props.userId }).then((user) => {
             user.events_attending.map((eventAtt) => {
                 this.setState({ eventsAttending: this.state.eventsAttending.concat([eventAtt]) });
                 });
@@ -31,8 +32,8 @@ class GoingInterested extends Component {
 
     checkerInterested(){
         let eventsInt = this.state.eventsInterested;
-        const eventId = this.state.eventId;
-        let checker = eventsInt.filter(e => e === String(eventId));
+        const eventId = this.state.eventObj._id;
+        let checker = eventsInt.filter(e => e._id === eventId);
         if(checker.length > 0){
             const index = eventsInt.indexOf(eventId);
             eventsInt.splice(index);
@@ -50,7 +51,8 @@ class GoingInterested extends Component {
             const body = {
                 user: this.state.userId,
                 events_interested: this.state.eventsInterested,
-                events_attending: this.state.eventsAttending
+                events_attending: this.state.eventsAttending,
+                eventObj: this.state.eventObj
             };
             post("api/userevents", body).then((dec) => {
                 const body2 = {
@@ -65,12 +67,13 @@ class GoingInterested extends Component {
     incrementInterested() {
         this.setState({
             interested: this.state.interested + 1, 
-            eventsInterested: this.state.eventsInterested.concat([this.state.eventId]),
+            eventsInterested: this.state.eventsInterested.concat([this.state.eventObj]),
         }, (e) => {
             const body = {
                 user: this.state.userId,
                 events_interested: this.state.eventsInterested,
-                events_attending: this.state.eventsAttending
+                events_attending: this.state.eventsAttending,
+                eventObj: this.state.eventObj
             };
             post("api/userevents", body).then((inc) => {
                 const body2 = {
@@ -84,8 +87,8 @@ class GoingInterested extends Component {
 
     checkerAttending(){
         let eventsAtt = this.state.eventsAttending;
-        const eventId = this.state.eventId;
-        let checker = eventsAtt.filter(e => e === String(eventId));
+        const eventId = this.state.eventObj._id;
+        let checker = eventsAtt.filter(e => e._id === eventId);
         if(checker.length > 0){
             const index = eventsAtt.indexOf(eventId);
             eventsAtt.splice(index);
@@ -103,7 +106,8 @@ class GoingInterested extends Component {
             const body = {
                 user: this.state.userId,
                 events_interested: this.state.eventsInterested,
-                events_attending: this.state.eventsAttending
+                events_attending: this.state.eventsAttending,
+                eventObj: this.state.eventObj
             };
             post("api/userevents", body).then((dec) => {
                 const body2 = {
@@ -118,12 +122,13 @@ class GoingInterested extends Component {
     incrementAttending() {
         this.setState({
             attending: this.state.attending + 1, 
-            eventsAttending: this.state.eventsAttending.concat([this.state.eventId]),
+            eventsAttending: this.state.eventsAttending.concat([this.state.eventObj]),
         }, (e) => {
             const body = {
                 user: this.state.userId,
                 events_interested: this.state.eventsInterested,
-                events_attending: this.state.eventsAttending
+                events_attending: this.state.eventsAttending,
+                eventObj: this.state.eventObj
             };
             post("api/userevents", body).then((inc) => {
                 const body2 = {

@@ -41,9 +41,38 @@ class Profile extends Component {
   }
   
   render() {
+    let events_attend = null;
+    let events_host = this.state.events.filter(event => event.host_id === this.props.userId);
+    let eventsList_attend = null;
+    let eventsList_host = null;
+
     if (!this.state.user) {
         return <div> Loading! </div>;
       };
+
+      if (events_host.length !==0) {
+        eventsList_host = events_host.map((eventObj) => (
+          <Card
+            key={`Card_${eventObj._id}`}
+            _id={eventObj._id}
+            host={eventObj.host}
+            hostID={eventObj.host_id}
+            nameEvent = {eventObj.nameEvent}
+            start = {eventObj.start}
+            end = {eventObj.end}
+            address = {eventObj.address}
+            link = {eventObj.link}
+            online_event = {eventObj.online_event}
+            description = {eventObj.description}
+            interested = {eventObj.interested}
+            attending = {eventObj.attending}
+            userId = {this.props.userId}
+          />
+        ));
+      } else {
+        eventsList_host = <div>You haven't host any event!</div>;
+      }
+    
     return (
       <div className="profile-container">
         <div className="profile-left">
@@ -59,7 +88,12 @@ class Profile extends Component {
             </div>
         </div>
         <div className="profile-right">
-            <span> Here is a test. </span>
+            <h1> Contents you are hosting! </h1>
+              <div>
+                {eventsList_host}
+              </div>
+            <h1> Contents you are attending! </h1>
+            <span> {console.log(this.state.events)} </span>
         </div>
       </div>
     );

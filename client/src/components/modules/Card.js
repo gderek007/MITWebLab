@@ -23,12 +23,6 @@ class Card extends Component {
           comments: comment,
         });
       });
-
-      get("/api/events", { parent: this.props._id }).then((comment) => {
-        this.setState({
-          
-        });
-      });
     }
 
     handleChangeComment = (event) => {
@@ -84,11 +78,6 @@ class Card extends Component {
             userId = {this.props.userId}
             _id = {this.props._id}
           />
-          {/* <label>
-            Comment
-            <input type="name" onChange={this.handleChangeComment.bind(this)} value={this.state.content}/>
-            <button type="submit" onClick = {this.addComment}>Submit</button>
-          </label> */}
           {this.props.userId ? (
             <label>
               Comment

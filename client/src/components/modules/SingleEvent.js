@@ -57,7 +57,8 @@ class SingleEvent extends Component {
           interested = {this.props.interested}
           attending = {this.props.attending}
           userId = {this.props.userId}
-          eventId = {this.props._id}/>
+          eventId = {this.props._id}
+          eventObj = {this.props.eventObj}/>
         <p>
         {this.props.description}
         </p>

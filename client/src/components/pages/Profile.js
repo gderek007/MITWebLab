@@ -93,6 +93,7 @@ class Profile extends Component {
                 {eventsList_host}
               </div>
             <h1> Contents you are attending! </h1>
+            <span> {console.log(this.state.events)} </span>
         </div>
       </div>
     );

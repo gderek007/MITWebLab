@@ -9,8 +9,8 @@ const UserSchema = new mongoose.Schema({
 	based: String,
   email: String,
   facebook_name: String,
-  events_interested: [String],
-  events_attending: [String]
+  events_interested: [Object],
+  events_attending: [Object]
 });
 
 // compile model from schema

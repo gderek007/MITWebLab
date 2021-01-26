@@ -50,9 +50,14 @@ class Timetable extends Component {
         eventsList = <div>No events!</div>;
       }
       return (
-        <>
-          {eventsList}
-        </>
+        <div className="timetable-container">
+          <div className="timetable-left">
+            {eventsList}
+          </div>
+          <div className="timetable-right">
+            <p> Filters </p>
+          </div>
+        </div>
       );
     }
 }

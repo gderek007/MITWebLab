@@ -1,0 +1,15 @@
+.timetable-container {
+    height: 91.7vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.timetable-left {
+    padding: 24px 3vw 24px 3vw;
+}
+
+.timetable-right {
+    padding: 24px 3vw 24px 3vw;
+    background-color: var(--darkgrey);
+}

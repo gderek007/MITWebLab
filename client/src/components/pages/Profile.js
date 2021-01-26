@@ -5,6 +5,7 @@ import Card from "../modules/Card.js";
 import "./Profile.css";
 import Timetable from "./Timetable";
 import ProfileLeft from "../modules/ProfileLeft.js"
+import EditProfileLeft from "../modules/EditProfileLeft.js"
 
 /**
  * Component to render profile page
@@ -93,7 +94,11 @@ class Profile extends Component {
         </div> */}
         <div className="profile-left">
           <div>
-          { this.state.edit ? (<p> editing </p>) :
+          { this.state.edit ? ( <>
+            <p> editing </p>
+            <EditProfileLeft user={this.state.user} />
+            </>
+          ) :
             (<ProfileLeft user={this.state.user}/>)
           }
           </div>

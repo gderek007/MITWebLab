@@ -3,7 +3,8 @@ import { get } from "../../utilities";
 import { Link } from "@reach/router";
 import Card from "../modules/Card.js";
 import "./Profile.css";
-import Timetable from "./Timetable";
+// import Timetable from "./Timetable";
+import EventList from "../modules/EventList.js"
 
 /**
  * Component to render profile page
@@ -37,37 +38,12 @@ class Profile extends Component {
   
   render() {
     let events_host = this.state.events.filter(event => event.host_id === this.props.userId);
-    let eventsList_host = null;
     let events_attend = this.state.events.filter(event => this.state.user.events_attending.includes(event._id));
-    let eventsList_attend = null;
+    let events_interested = this.state.events.filter(event => this.state.user.events_interested.includes(event._id));
 
     if (!this.state.user) {
         return <div> Loading! </div>;
       };
-
-      if (events_host.length!==0) {
-        eventsList_host = events_host.map((eventObj) => (
-          <Card
-            eventObj = {eventObj}
-            userId = {this.props.userId}
-            ishost = {Boolean(true)}
-          />
-        ));
-      } else {
-        eventsList_host = <div>You haven't host any event!</div>;
-      }
-
-      if (events_attend.length!==0) {
-        eventsList_attend = events_attend.map((eventObj) => (
-          <Card
-            eventObj = {eventObj}
-            userId = {this.props.userId}
-            ishost = {Boolean(false)}
-          />
-        ));
-      } else {
-        eventsList_attend = <div>You haven't attended any event!</div>;
-      }
 
     return (
       <div className="profile-container">
@@ -86,16 +62,31 @@ class Profile extends Component {
         <div className="profile-right">
           <div>
             <h2> Events you are Hosting! </h2>
-              <div> {eventsList_host} </div>
+              <EventList 
+                userId={this.props.userId} 
+                events={events_host}
+                ishost={Boolean(true)}
+                null_msg={"You haven't hosted any events"}
+              />
           </div>
           <div>
             <h2>Events you are Attending!</h2>
-            <div> {eventsList_attend} </div>
+            <EventList 
+                userId={this.props.userId} 
+                events={events_attend}
+                ishost={Boolean(false)}
+                null_msg={"You haven't attended any events"}
+              />
             </div>
           <div>
             <h2>Events you are Interested in 🤔</h2>
+            <EventList 
+                userId={this.props.userId} 
+                events={events_interested}
+                ishost={Boolean(false)}
+                null_msg={"Seems like your wishlist is empty"}
+              />
           </div>
-            <span> </span>
         </div>
       </div>
     );

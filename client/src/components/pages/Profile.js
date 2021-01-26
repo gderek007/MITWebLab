@@ -36,7 +36,11 @@ class Profile extends Component {
 
   onClick = () => {
     console.log("Clicked");
-    this.setState({edit: Boolean(true)});
+    if (this.state.edit) {
+      this.setState({edit: Boolean(false)});
+    } else {
+      this.setState({edit: Boolean(true)});
+    }
   }
   
   render() {
@@ -89,14 +93,17 @@ class Profile extends Component {
         </div> */}
         <div className="profile-left">
           <div>
-            <ProfileLeft user={this.state.user}/>
+          { this.state.edit ? (<p> editing </p>) :
+            (<ProfileLeft user={this.state.user}/>)
+          }
           </div>
           <div className="profile-left-boxes">
-              <button type="submit" onClick={this.onClick}> Edit Profile </button>
-          </div>
-          <div className="profile-left-boxes"> {/* className="profile-left-personale" */}
-          { this.state.edit ? (<p> editing </p>) :  
-            (<> </>)}
+              { this.state.edit ? (
+                <button type="submit" onClick={this.onClick}> Submit </button>
+              ) : (
+                <button type="submit" onClick={this.onClick}> Edit Profile </button>
+              )}
+              
           </div>
         </div>
         <div className="profile-right">

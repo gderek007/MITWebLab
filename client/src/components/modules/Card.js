@@ -7,6 +7,18 @@ import "./Card.css";
 import SingleEvent from "./SingleEvent.js";
 import SingleComment from "./SingleComment.js";
 
+/**
+ * Card is a component that renders 
+ * the events card containing all details of events.
+ *
+ * Proptypes
+ * @param {string} event_Id
+ * @param {string} key
+ * @param {string} eventObj
+ * @param {string} userId
+ * @param {string} ishost (hard coded for now)
+ */
+
 class Card extends Component {
     constructor(props) {
       super(props);
@@ -43,12 +55,12 @@ class Card extends Component {
     }
 
     addComment = () => {
-      const body = {content: this.state.content, parent:this.props._id };
+      const body = {content: this.state.content, parent:this.props.event_Id };
       const newComment = new Comment({
         // creator_name: this.props.creatorName,
         // creator_id: this.props.creatorID,
         content: this.state.content,
-        parent: this.props._id,
+        parent: this.props.event_Id,
       });
 
       post("/api/comment", body).then((event) => {

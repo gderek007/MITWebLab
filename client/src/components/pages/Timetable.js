@@ -33,7 +33,6 @@ class Timetable extends Component {
       if(this.state.eventsAttending){
         hasEvents = this.state.eventsAttending.length !== 0;
         eventsList = this.state.eventsAttending;
-        console.log(hasEvents);
       }
       else if (this.state.eventsInterested) {
         hasEvents = this.state.eventsInterested.length !== 0;

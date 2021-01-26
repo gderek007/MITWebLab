@@ -81,7 +81,6 @@ class Profile extends Component {
             </div>
         </div>
         <div className="profile-right">
-<<<<<<< HEAD
           <div className="attending-events">
             <h2>Events you are Attending!</h2>
             
@@ -99,14 +98,6 @@ class Profile extends Component {
             />
           </div>
             <span> </span>
-=======
-            <h1> Contents you are hosting! </h1>
-              <div>
-                {eventsList_host}
-              </div>
-            <h1> Contents you are attending! </h1>
-            <span> {console.log(this.state.events)} </span>
->>>>>>> 46ba2d4cace1904b8bc2a3863132cddd6ffd535b
         </div>
       </div>
       

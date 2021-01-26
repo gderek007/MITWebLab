@@ -7,12 +7,10 @@ class GoingInterested extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          attending: this.props.attending,
-          interested: this.props.interested,
-          attendingPressed: true,
-          interestedPressed: true,
+          attending: this.props.eventObj.attending,
+          interested: this.props.eventObj.interested,
           userId: this.props.userId,
-          eventId: this.props.eventId,
+          eventId: this.props.eventObj._id,
           eventsAttending: [],
           eventsInterested: [],
           eventObj: this.props.eventObj,

@@ -3,6 +3,7 @@ import { get } from "../../utilities";
 import { Link } from "@reach/router";
 import Card from "../modules/Card.js";
 import "./Profile.css";
+import Timetable from "./Timetable";
 
 /**
  * Component to render profile page
@@ -24,18 +25,9 @@ class Profile extends Component {
     get("/api/user", {userId: this.props.userId}).then((user) => this.setState({ user: user }));
   };
 
-  loadCreatedEvent = () => {
-    get("/api/events").then((events) => {
-      this.setState({
-        events: events,
-      });
-    });
-  }
-
   componentDidMount() {
     document.title = "Profile Page";
-    this.getUserData();
-    this.loadCreatedEvent();
+    this.getUserData();    
     // .then(console.log(this.state.user))
     //
   }
@@ -59,9 +51,26 @@ class Profile extends Component {
             </div>
         </div>
         <div className="profile-right">
-            <span> {console.log(this.state.events)} </span>
+          <div className="attending-events">
+            <h2>Events you are Attending!</h2>
+            
+            <Timetable
+            userId = {this.props.userId}
+            eventsAttending = {this.state.user.events_attending}
+            />
+            </div>
+          <div className="interested-events">
+            <h2>Events you are Interested in 🤔</h2>
+            
+            <Timetable
+            userId = {this.props.userId}
+            eventsInterested = {this.state.user.events_interested}
+            />
+          </div>
+            <span> </span>
         </div>
       </div>
+      
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { get } from "../../utilities";
 import { Link } from "@reach/router";
-// import Card from "../modules/Card";
+import Card from "../modules/Card.js";
 import "./Profile.css";
 
 /**
@@ -25,7 +25,7 @@ class Profile extends Component {
   };
 
   loadCreatedEvent = () => {
-    get("/api/event", {host_id: this.props.userId}).then((events) => {
+    get("/api/events").then((events) => {
       this.setState({
         events: events,
       });
@@ -34,8 +34,10 @@ class Profile extends Component {
 
   componentDidMount() {
     document.title = "Profile Page";
-    this.getUserData();  
-    //this.loadCreatedEvent()
+    this.getUserData();
+    this.loadCreatedEvent();
+    // .then(console.log(this.state.user))
+    //
   }
   
   render() {

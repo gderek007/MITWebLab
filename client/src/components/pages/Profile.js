@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { get } from "../../utilities";
-import { Link } from "@reach/router";
-import Card from "../modules/Card.js";
+import { get, post } from "../../utilities";
 import "./Profile.css";
-// import Timetable from "./Timetable";
 import EventList from "../modules/EventList.js"
-import ProfileLeft from "./ProfileLeft.js"
+import ProfileLeft from "../modules/ProfileLeft.js"
 
 /**
  * Component to render profile page

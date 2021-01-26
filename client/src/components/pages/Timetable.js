@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Card from "../modules/Card";
 import { get } from "../../utilities";
+import EventList from "../modules/EventList.js";
 
 import "./Timetable.css";
 
@@ -27,42 +28,18 @@ class Timetable extends Component {
     }
 
     render() {
-      let hasEvents;
-      let cardList = null;
-      let eventsList = null;
-      if(this.state.eventsAttending){
-        hasEvents = this.state.eventsAttending.length !== 0;
-        eventsList = this.state.eventsAttending;
-      }
-      else if (this.state.eventsInterested) {
-        hasEvents = this.state.eventsInterested.length !== 0;
-        eventsList = this.state.eventsInterested;
-      }
-      else{
-        hasEvents = this.state.events.length !== 0;
-        eventsList = this.state.events;
-      }
-      
-      
-      if (hasEvents) {
-        cardList = eventsList.map((eventObj) => (
-          <Card
-            key={`Card_${eventObj._id}`}
-            userId = {this.props.userId}
-            eventObj = {eventObj}
-            ishost = {Boolean(false)}
-          />
-        ));
-      } else {
-        cardList = <div>No events!</div>;
-      }
       return (
         <div className="timetable-container">
           <div className="timetable-left">
-            {cardList}
+            <EventList 
+                userId={this.props.userId} 
+                events={this.state.events}
+                ishost={Boolean(false)}
+                null_msg={"There is no events! Come and create one!"}
+            />
           </div>
           <div className="timetable-right">
-            <p> Filters </p>
+            <p> List of Filters </p>
           </div>
         </div>
       );

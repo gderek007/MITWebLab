@@ -81,6 +81,7 @@ router.get("/whoami", (req, res) => {
 router.get("/user", (req, res) => {
   User.findById(req.query.userId).then((user) => {
     res.send(user);
+    console.log(user._id);
   });
 });
 

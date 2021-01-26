@@ -18,7 +18,7 @@ class GoingInterested extends Component {
       }
 
     componentDidMount() {
-        get("api/user", { userId: this.props.userId }).then((user) => {
+        get("/api/user", { userId: this.props.userId }).then((user) => {
             user.events_attending.map((eventAtt) => {
                 this.setState({ eventsAttending: this.state.eventsAttending.concat([eventAtt]) });
                 });

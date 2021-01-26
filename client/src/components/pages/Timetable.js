@@ -51,6 +51,7 @@ class Timetable extends Component {
             key={`Card_${eventObj._id}`}
             userId = {this.props.userId}
             eventObj = {eventObj}
+            ishost = {Boolean(false)}
           />
         ));
       } else {

@@ -59,7 +59,7 @@ class Profile extends Component {
             </div>
         </div>
         <div className="profile-right">
-            <span> Here is a test. </span>
+            <span> {console.log(this.state.events)} </span>
         </div>
       </div>
     );

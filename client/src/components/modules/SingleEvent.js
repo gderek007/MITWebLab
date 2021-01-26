@@ -33,34 +33,31 @@ class SingleEvent extends Component {
       return (
       <div className = "Card-event">
         <div className = "Card-eventTitle " >
-        {this.props.nameEvent + " "}
+        {this.props.eventObj.nameEvent + " "}
           <div className = "Card-eventUser u-inlineBlock">
-          By: {this.props.host}
+          By: {this.props.eventObj.host}
           </div>
         </div>
         
         <div className = "u-textLeft">
-          Starting on {this.formatDate(this.props.start)}, 
-          finishing on {this.formatDate(this.props.end)}.
+          Starting on {this.formatDate(this.props.eventObj.start)}, 
+          finishing on {this.formatDate(this.props.eventObj.end)}.
         </div>
         <div className = "u-textLeft">
-          Link: {this.props.link}
+          Link: {this.props.eventObj.link}
         </div>
         <div className = "u-textLeft">
-          Address: {this.props.address}
+          Address: {this.props.eventObj.address}
         </div>
-        {this.props.isOnline ? (
+        {this.props.eventObj.isOnline ? (
           <div>
             This is an online event.
           </div> ) : (<> </>)}
         <GoingInterested 
-          interested = {this.props.interested}
-          attending = {this.props.attending}
           userId = {this.props.userId}
-          eventId = {this.props._id}
           eventObj = {this.props.eventObj}/>
         <p>
-        {this.props.description}
+        {this.props.eventObj.description}
         </p>
       </div>
       );

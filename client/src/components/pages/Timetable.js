@@ -10,6 +10,9 @@ class Timetable extends Component {
       super(props);
       this.state = {
         events: [],
+        eventsAttending: this.props.eventsAttending,
+        eventsInterested: this.props.eventsInterested,
+
       };
     }
 
@@ -24,36 +27,39 @@ class Timetable extends Component {
     }
 
     render() {
+      let hasEvents;
+      let cardList = null;
       let eventsList = null;
-      const hasEvents = this.state.events.length !== 0;
+      if(this.state.eventsAttending){
+        hasEvents = this.state.eventsAttending.length !== 0;
+        eventsList = this.state.eventsAttending;
+      }
+      else if (this.state.eventsInterested) {
+        hasEvents = this.state.eventsInterested.length !== 0;
+        eventsList = this.state.eventsInterested;
+      }
+      else{
+        hasEvents = this.state.events.length !== 0;
+        eventsList = this.state.events;
+      }
+      
       
       if (hasEvents) {
-        eventsList = this.state.events.map((eventObj) => (
+        cardList = eventsList.map((eventObj) => (
           <Card
             key={`Card_${eventObj._id}`}
-            _id={eventObj._id}
-            host={eventObj.host}
-            hostID={eventObj.host_id}
-            nameEvent = {eventObj.nameEvent}
-            start = {eventObj.start}
-            end = {eventObj.end}
-            address = {eventObj.address}
-            link = {eventObj.link}
-            online_event = {eventObj.online_event}
-            description = {eventObj.description}
-            interested = {eventObj.interested}
-            attending = {eventObj.attending}
             userId = {this.props.userId}
             eventObj = {eventObj}
+            ishost = {Boolean(false)}
           />
         ));
       } else {
-        eventsList = <div>No events!</div>;
+        cardList = <div>No events!</div>;
       }
       return (
         <div className="timetable-container">
           <div className="timetable-left">
-            {eventsList}
+            {cardList}
           </div>
           <div className="timetable-right">
             <p> Filters </p>

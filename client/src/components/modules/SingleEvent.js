@@ -6,17 +6,9 @@ import GoingInterested from "./GoingInterested";
  * Story is a component that renders creator and content of a story
  *
  * Proptypes
- * @param {string} host
- * @param {string} hostId
- * @param {string} nameEvent 
- * @param {Date} start
- * @param {Date} end
- * @param {string} address
- * @param {string} link
- * @param {string} isOnline (online_event)
- * @param {string} description
- * @param {number} interested
- * @param {number} attending
+ * @param {string} userId
+ * @param {string} eventObj
+ * @param {string} ishost
  */
 
 class SingleEvent extends Component {
@@ -53,9 +45,10 @@ class SingleEvent extends Component {
           <div>
             This is an online event.
           </div> ) : (<> </>)}
-        <GoingInterested 
-          userId = {this.props.userId}
-          eventObj = {this.props.eventObj}/>
+        {this.props.ishost ? (<> </>) : (
+          <GoingInterested 
+            userId = {this.props.userId}
+            eventObj = {this.props.eventObj} /> )}
         <p>
         {this.props.eventObj.description}
         </p>

@@ -4,6 +4,7 @@ import { Link } from "@reach/router";
 import Card from "../modules/Card.js";
 import "./Profile.css";
 import Timetable from "./Timetable";
+import ProfileLeft from "./ProfileLeft.js"
 
 /**
  * Component to render profile page
@@ -18,6 +19,7 @@ class Profile extends Component {
     this.state = {
         user: undefined,
         events: [],
+        edit: Boolean(false),
       };
   }
 
@@ -30,6 +32,11 @@ class Profile extends Component {
     this.getUserData();    
     // .then(console.log(this.state.user))
     //
+  }
+
+  onClick = () => {
+    console.log("Clicked");
+    this.setState({edit: Boolean(true)});
   }
   
   render() {
@@ -68,7 +75,7 @@ class Profile extends Component {
     
     return (
       <div className="profile-container">
-        <div className="profile-left">
+        {/* <div className="profile-left">
             <div className="profile-left-names">
                 <h1 className="profile-nomargin"> {this.state.user.name} </h1>
                 <h3 className="profile-nomargin"> {this.state.user.user_nickname} </h3>
@@ -79,6 +86,18 @@ class Profile extends Component {
                 <p className="profile-nomargin"> Email: {this.state.user.email} </p>
                 <p className="profile-nomargin"> Facebook Name: {this.state.user.facebook_name} </p>
             </div>
+        </div> */}
+        <div className="profile-left">
+          <div>
+            <ProfileLeft user={this.state.user}/>
+          </div>
+          <div className="profile-left-boxes">
+              <button type="submit" onClick={this.onClick}> Edit Profile </button>
+          </div>
+          <div className="profile-left-boxes"> {/* className="profile-left-personale" */}
+          { this.state.edit ? (<p> editing </p>) :  
+            (<> </>)}
+          </div>
         </div>
         <div className="profile-right">
           <div className="attending-events">

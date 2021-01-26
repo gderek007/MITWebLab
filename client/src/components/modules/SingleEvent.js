@@ -61,7 +61,6 @@ class SingleEvent extends Component {
         <p>
         {this.props.description}
         </p>
-        
       </div>
       );
     }

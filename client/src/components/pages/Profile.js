@@ -105,6 +105,7 @@ class Profile extends Component {
                 userId={this.props.userId} 
                 events={this.upcomingEvents(host_event)}
                 null_msg={"You haven't hosted any events"}
+                isUserProfile={Boolean(true)}
               />
             </div>
           </div>
@@ -116,6 +117,7 @@ class Profile extends Component {
                 userId={this.props.userId} 
                 events={this.upcomingEvents(attend_event)}
                 null_msg={"You haven't attended any events"}
+                isUserProfile={Boolean(false)}
               />
             </div>
           </div>
@@ -127,6 +129,7 @@ class Profile extends Component {
                 userId={this.props.userId} 
                 events={this.upcomingEvents(interest_event)}
                 null_msg={"Seems like your wishlist is empty"}
+                isUserProfile={Boolean(false)}
               />
             </div>
           </div>
@@ -139,6 +142,7 @@ class Profile extends Component {
                 events={this.pastEvents(attend_event.concat(host_event))}
                 ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
+                isUserProfile={Boolean(false)}
               />
             </div>
           </div>

@@ -9,6 +9,7 @@ import "./SingleEvent.css";
  * Proptypes
  * @param {string} userId
  * @param {string} eventObj
+ * @param {string} isUserProfile
  */
 
 class SingleEvent extends Component {
@@ -51,13 +52,22 @@ class SingleEvent extends Component {
             This is an online event.
           </div> ) : (<> </>)}
         { (this.props.eventObj.host_id === this.props.userId) ? (
+          <>
           <p> You are hosting this event.</p>
+            <> { this.props.isUserProfile ? (
+              <p> You can edit here. </p>
+            ) : (
+              <p> Please go to profile page to edit. </p>
+            )
+            } </>
+          </>
         ) : (
           <GoingInterested 
             userId = {this.props.userId}
             eventObj = {this.props.eventObj} /> )}
         <p>
         {this.props.eventObj.description}
+        {/*isUserProfile = this.props.isUserProfile */}
         </p>
       </div>
       );

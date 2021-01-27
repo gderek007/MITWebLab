@@ -49,6 +49,7 @@ class Timetable extends Component {
                 user={this.props.user}
                 events={this.upcomingEvents()}
                 null_msg={"There is no events! Come and create one!"}
+                isUserProfile={Boolean(false)}
             />
           </div>
           <div className="timetable-right">

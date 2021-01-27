@@ -18,6 +18,7 @@ import {get, post} from "../../utilities";
  * @param {string} eventObj
  * @param {string} userId
  * @param {string} user
+ * @param {Boolean} isUserProfile
  */
 
 class Card extends Component {
@@ -70,6 +71,7 @@ class Card extends Component {
           <SingleEvent 
             userId = {this.props.userId}
             eventObj = {this.props.eventObj}
+            isUserProfile= {this.props.isUserProfile}
           />
           <div>
             {comments.map((comment) => (

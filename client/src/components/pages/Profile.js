@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { get, post } from "../../utilities";
-import "./Profile.css";
 import EventList from "../modules/EventList.js";
 import SocialTime from "../modules/SocialTime.js";
 import ProfileLeft from "../modules/ProfileLeft.js";
 import EditProfileLeft from "../modules/EditProfileLeft.js";
+
+import "./Profile.css";
+
+import { get } from "../../utilities";
 
 /**
  * Component to render profile page
@@ -96,7 +98,6 @@ class Profile extends Component {
           ) :
             (<ProfileLeft user={this.state.user}/>)
           }
-          
           </div>
 
           <div className="profile-left-boxes">
@@ -105,12 +106,10 @@ class Profile extends Component {
               ) : (
                 <button type="submit" onClick={this.onClick}> Edit Profile </button>
               )}
-              
           </div>
-          
         </div>
         <div className="profile-right">
-        <div>
+          <div>
             <SocialTime
             user={this.state.user}
             hostEvents={host_event}
@@ -133,43 +132,42 @@ class Profile extends Component {
           <div>
             <h2>Events you are Attending!</h2>
             <div className = "childDiv">
-            <EventList 
+              <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
                 events={this.upcomingEvents(attend_event)}
                 ishost={Boolean(false)}
                 null_msg={"You haven't attended any events"}
               />
-              </div>
             </div>
+          </div>
           <div>
             <h2>Events you are Interested in 🤔</h2>
             <div className = "childDiv">
-            <EventList 
+              <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
                 events={this.upcomingEvents(interest_event)}
                 ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
               />
-              </div>
+            </div>
           </div>
           <div>
             <h2>Your Past Events</h2>
             <div className = "childDiv">
-            <EventList 
+              <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
                 events={this.pastEvents(attend_event.concat(host_event))}
                 ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
               />
-              </div>
+            </div>
           </div>
         </div>
       </div>
-    );
-    } 
+    );}
   }
 }
 

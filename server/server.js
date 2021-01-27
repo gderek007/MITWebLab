@@ -36,7 +36,7 @@ const socketManager = require("./server-socket");
 // Server configuration below
 // TODO change connection URL after setting up your team database
 // TODO change database name to the name you chose
-const mongoConnectionURL = "mongodb+srv://derek:derek1234@cluster0.uufe7.mongodb.net/data?retryWrites=true&w=majority";
+const mongoConnectionURL = process.env.mongodbSRV;
 const databaseName = "Eventinder";
 
 // connect to mongodb

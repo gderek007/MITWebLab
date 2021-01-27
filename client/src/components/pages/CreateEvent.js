@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import MapboxAutocomplete from 'react-mapbox-autocomplete';
+import DateTimePicker from "react-datetime-picker";
 
 import "./CreateEvent.css";
-import { post } from "../../utilities";
-import MapboxAutocomplete from 'react-mapbox-autocomplete';
 import "react-datetime/css/react-datetime.css";
-import DateTimePicker from "react-datetime-picker";
+
+import { post } from "../../utilities";
 
 const API_TOKEN = "pk.eyJ1IjoibXBlcmF6YTA3MTQiLCJhIjoiY2trM2wxaXcyMTRwaTJ4cGpiaXQ3bjltNiJ9.a8AxmhpMBO7jfrD3s190Yg";
 
@@ -23,7 +24,6 @@ class CreateEvent extends Component {
         description: "",
       };
     }
-
 
     handleChangeEvent = (event) => {
       this.setState({

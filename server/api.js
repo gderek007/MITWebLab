@@ -14,7 +14,6 @@ const User = require("./models/user");
 const Event = require("./models/event");
 const Comment = require("./models/comment");
 
-
 // import authentication library
 const auth = require("./auth");
 
@@ -23,6 +22,12 @@ const router = express.Router();
 
 //initialize socket
 const socketManager = require("./server-socket");
+
+router.get("/events", (req, res) => { 
+  Event.find().then((event) => {
+  res.send(event);
+});
+});
 
 router.post("/addevent", (req, res) => {
   const newEvent = new Event({
@@ -40,14 +45,13 @@ router.post("/addevent", (req, res) => {
     lat: req.body.lat,
     lng: req.body.lng,
   });
-  
   newEvent.save().then((event) => res.send(event)).catch((error) => console.log(error));
   console.log("Posted Event");
 });
 
-router.get("/events", (req, res) => { 
-    Event.find().then((event) => {
-    res.send(event);
+router.get("/comment", (req, res) => {
+  Comment.find({ parent: req.query.parent }).then((comments) => {
+    res.send(comments);
   });
 });
 
@@ -58,21 +62,13 @@ router.post("/comment", (req, res) => {
     content: req.body.content,
     parent: req.body.parent,
   });
-
   newComment.save().then((comment) => res.send(comment)).catch((error) => console.log(error));
-});
-
-router.get("/comment", (req, res) => {
-  Comment.find({ parent: req.query.parent }).then((comments) => {
-    res.send(comments);
-  });
 });
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
 router.get("/whoami", (req, res) => {
   if (!req.user) {
-    // not logged in
     return res.send({});
   }
   res.send(req.user);
@@ -108,16 +104,11 @@ router.post("/attending", (req, res) => {
   }).then((page) => {res.send(page)});
 });
 
-
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
   if (req.user) socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });
-
-// |------------------------------|
-// | write your API methods below!|
-// |------------------------------|
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

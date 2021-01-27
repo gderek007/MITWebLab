@@ -133,7 +133,7 @@ class Profile extends Component {
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <h2>Your Past Events</h2>
             <div className = "childDiv">
               <EventList 
@@ -145,7 +145,7 @@ class Profile extends Component {
                 isUserProfile={Boolean(false)}
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );}

@@ -39,5 +39,6 @@
 .profile-right {
     height: 100%;
     padding: 24px 3vw 24px 3vw;
+    overflow-y: scroll
 }
 

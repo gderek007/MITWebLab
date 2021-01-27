@@ -19,7 +19,7 @@ class SingleEvent extends Component {
     }
 
     formatDate = (dateString) => {
-      const options = { year: "numeric", month: "long", day: "numeric", weekday: "short", hour: "numeric", minute: "numeric"}
+      const options = { year: "numeric", month: "numeric", day: "numeric", weekday: "short", hour: "numeric", minute: "numeric"}
       return new Date(dateString).toLocaleDateString(undefined, options) + " "
     }
 
@@ -38,11 +38,13 @@ class SingleEvent extends Component {
         </div>
         
         <div className = "u-textLeft">
-          Starting on {this.formatDate(this.props.eventObj.start)}, 
-          finishing on {this.formatDate(this.props.eventObj.end)}.
+          Starting on: {this.formatDate(this.props.eventObj.start)}
+        </div>
+        <div className = "u-textLeft">
+          Ending on: {this.formatDate(this.props.eventObj.end)}
         </div>
         {this.props.eventObj.link ? (
-        <div className = "u-textLeft">
+        <div className = "u-textLeft" >
           Link: {this.props.eventObj.link}
         </div>) : (
         <div className = "u-textLeft">
@@ -73,7 +75,7 @@ class SingleEvent extends Component {
       </div>
       );
     }
-}
+  }
 
 export default SingleEvent
 

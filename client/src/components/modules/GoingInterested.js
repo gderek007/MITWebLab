@@ -148,15 +148,15 @@ class GoingInterested extends Component {
 
     render() {
         return (
-        <p>     
+        <div className= "u-flex">
             {" Interested: " + this.state.interested}
             {" Going: " + this.state.attending}  
             {this.props.userId ? (
-            <label>
-              <button type="submit" onClick = {this.checkerInterested.bind(this)}>Interested?</button>
+            <label className= "u-flex-alignRight">
+                <button type="submit" onClick = {this.checkerInterested.bind(this)}>Interested?</button>
                 <button type="submit" onClick = {this.checkerAttending.bind(this)}>Attending?</button>
             </label>) : (<div> </div>)}            
-        </p>
+            </div>
         )};
 }
 

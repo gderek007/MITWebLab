@@ -62,6 +62,15 @@ form {
   align-items: center;
 }
 
+.u-card-boxes {
+  position: relative;
+}
+
+.u-card-right-boxes {
+  position: absolute;
+  right: -200px;
+}
+
 .u-inlineBlock {
   display: inline-block;
 }

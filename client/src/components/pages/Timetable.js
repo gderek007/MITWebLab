@@ -52,9 +52,9 @@ class Timetable extends Component {
                 isUserProfile={Boolean(false)}
             />
           </div>
-          <div className="timetable-right">
+          {/* <div className="timetable-right">
             <p> List of Filters </p>
-          </div>
+          </div> */}
         </div>
       );
     }

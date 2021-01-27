@@ -31,8 +31,10 @@ router.get("/events", (req, res) => {
 
 router.post("/addevent", (req, res) => {
   const newEvent = new Event({
-    host: req.user.name,
-    host_id: req.user._id,
+    // host: req.user.name,
+    // host_id: req.user._id,
+    host: req.body.host,
+    host_id: req.body.host_id,
     nameEvent: req.body.nameEvent,
     start: req.body.start,
     end: req.body.end,

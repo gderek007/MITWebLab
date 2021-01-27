@@ -62,7 +62,7 @@ class App extends Component {
           <Router>
             <Profile path="/profile/:userId"/>
             <Timetable path = "/timetable" userId={this.state.userId} user={this.state.user}/>
-            <CreateEvent path = "/addevent" />
+            <CreateEvent path = "/addevent" user={this.state.user}/>
             <Home path = "/" />
             <Map path = "/map" />
             <NotFound default />

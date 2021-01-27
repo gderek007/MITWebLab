@@ -82,6 +82,8 @@ class CreateEvent extends Component {
       }
 
       const body = {
+        host: this.props.user.name,
+        host_id: this.props.user._id,
         nameEvent: this.state.eventName, 
         start: this.state.start,
         end: this.state.end,

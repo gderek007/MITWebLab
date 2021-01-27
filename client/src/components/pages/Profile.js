@@ -99,13 +99,13 @@ class Profile extends Component {
             (<ProfileLeft user={this.state.user} onclick={this.onClick}/>)
           }
           </div>
-          <div className="profile-left-boxes">
+          {/* <div className="profile-left-boxes">
               { this.state.edit ? (
                 <button type="submit" onClick={this.onClick}> Submit </button>
               ) : (
                 <button type="submit" onClick={this.onClick}> Edit Profile </button>
               )}
-          </div>
+          </div> */}
         </div>
         <div className="profile-right">
           <div>

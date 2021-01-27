@@ -55,13 +55,31 @@ import "./EditProfileLeft.css";
       };
 
      // Updating User Details
+
+      statetobody = (state) => {
+        let new_name = this.state.name;
+        let new_user_nickname = this.state.user_nickname;
+        let new_based = this.state.based;
+        let new_email = this.state.email;
+        let new_facebook_name = this.state.facebook_name;
+
+        if (!new_name) {new_name = this.props.user.name};
+        if (!new_user_nickname) {new_user_nickname = this.props.user.user_nickname};
+        if (!new_based) {new_based = this.props.user.based};
+        if (!new_email) {new_email = this.props.user.email};
+        if (!new_facebook_name) {new_facebook_name = this.props.user.facebook_name};
+
+        return {
+          name: new_name, 
+          user_nickname: new_user_nickname,
+          based: new_based,
+          email: new_email, 
+          facebook_name: new_facebook_name,
+        }
+      }
+
      onSubmit = () => {
-      const body = {
-        name: this.state.name, 
-        user_nickname: this.state.user_nickname,
-        based: this.state.based,
-        email: this.state.email, 
-        facebook_name: this.state.facebook_name,}
+      const body = this.statetobody(this.state);
         
       post("/api/userupdate", body).then((event) => {
         this.setState({

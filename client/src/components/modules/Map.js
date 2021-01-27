@@ -24,7 +24,8 @@ class Map extends Component {
       events: [],
       virtualEvents: [],
       selectedEvent: null,
-      btnText: "Show Virtual Events"
+      btnText: "Show Virtual Events",
+      today: today
     };
   }
 
@@ -48,13 +49,8 @@ class Map extends Component {
       return new Date(d.setDate(diff));
   }
 
-  upcomingVirtualEvents(){
-    let upcoming = this.state.virtualEvents.filter((e) => (new Date(e.start) >= this.state.today) )
-    return upcoming;
-  }
-
-  upcomingEvents(){
-    let upcoming = this.state.events.filter((e) => (new Date(e.start) >= this.state.today) )
+  upcomingEvents(events){
+    let upcoming = events.filter((e) => (new Date(e.start) >= this.state.today) )
     return upcoming;
   }
 
@@ -159,13 +155,12 @@ class Map extends Component {
             <EventList 
               user={this.props.user}
               userId={this.props.userId} 
-              events={this.upcomingVirtualEvents()}
+              events={this.upcomingEvents(this.state.virtualEvents)}
               ishost={Boolean(false)}
               null_msg={"No virtual events"}
             />
         </div>
       </div>
-
     </div>
     );
   }

@@ -8,7 +8,6 @@ import DateTimePicker from "react-datetime-picker";
 
 const API_TOKEN = "pk.eyJ1IjoibXBlcmF6YTA3MTQiLCJhIjoiY2trM2wxaXcyMTRwaTJ4cGpiaXQ3bjltNiJ9.a8AxmhpMBO7jfrD3s190Yg";
 
-
 class CreateEvent extends Component {
     constructor(props) {
       super(props);
@@ -64,12 +63,6 @@ class CreateEvent extends Component {
       });
     }
 
-    // handleChangeAddress = (event) => {
-    //   this.setState({
-    //     address: event.target.value,
-    //   });
-    // };
-
     handleChangeDescription = (event) => {
       this.setState({
         description: event.target.value,
@@ -77,6 +70,17 @@ class CreateEvent extends Component {
     };
 
     addEvent = () => {
+      let condition1 = (this.state.address === "" && this.state.link === "");
+      let condition2 = (new Date(this.state.start) > new Date(this.state.end));
+      if(condition1){
+        window.alert("Your event must have a link or address!!");
+        return;
+      }
+      else if(condition2){
+        window.alert("Start date cannot be greater than end date!");
+        return;
+      }
+
       const body = {
         nameEvent: this.state.eventName, 
         start: this.state.start,
@@ -91,6 +95,7 @@ class CreateEvent extends Component {
         attending: 1}
         
       post("/api/addevent", body).then((event) => {
+        if(!condition1 || !condition2){
         this.setState({
           eventName:"",
           start:"",
@@ -100,6 +105,7 @@ class CreateEvent extends Component {
           link:"",
           description:"",
         });
+      }
       }).catch((e) => console.log(e));
     }
 
@@ -118,13 +124,14 @@ class CreateEvent extends Component {
             <input type="name" 
             onChange={this.handleChangeEvent.bind(this)} 
             value={this.state.eventName} 
-            placeholder = {"Event Name"}/>
+            placeholder = {"Event Name"} required/>
           </label>
   
           <label>
             <DateTimePicker
               onChange={this.handleChangeStart.bind(this)} 
               value={this.state.start}
+              required
             />
           </label>
 
@@ -132,6 +139,7 @@ class CreateEvent extends Component {
             <DateTimePicker
               onChange={this.handleChangeEnd.bind(this)} 
               value={this.state.end}
+              required
             />
           </label>
 
@@ -155,6 +163,7 @@ class CreateEvent extends Component {
             inputClass='form-control search'
             onSuggestionSelect={this._suggestionSelect}
             country='us'
+            placeholder='Address'
             resetSearch={false}/>
           </label>
 
@@ -162,7 +171,8 @@ class CreateEvent extends Component {
             <input type="description" 
             onChange={this.handleChangeDescription.bind(this)} 
             value={this.state.description}
-            placeholder = {"Description"} />
+            placeholder = {"Description"} 
+            required/>
           </label>
 
           <button type="submit" onClick = {this.addEvent}>Submit</button>

@@ -35,12 +35,13 @@ class SingleEvent extends Component {
           Starting on {this.formatDate(this.props.eventObj.start)}, 
           finishing on {this.formatDate(this.props.eventObj.end)}.
         </div>
+        {this.props.eventObj.link ? (
         <div className = "u-textLeft">
           Link: {this.props.eventObj.link}
-        </div>
+        </div>) : (
         <div className = "u-textLeft">
           Address: {this.props.eventObj.address}
-        </div>
+        </div>)}
         {this.props.eventObj.isOnline ? (
           <div>
             This is an online event.

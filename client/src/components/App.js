@@ -64,7 +64,7 @@ class App extends Component {
             <Timetable path = "/timetable" userId={this.state.userId} user={this.state.user}/>
             <CreateEvent path = "/addevent" user={this.state.user}/>
             <Home path = "/" />
-            <Map path = "/map" />
+            <Map path = "/map" userId={this.state.userId} user={this.state.user}/>
             <NotFound default />
           </Router>
         </div>

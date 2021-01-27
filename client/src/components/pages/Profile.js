@@ -92,14 +92,13 @@ class Profile extends Component {
         <div className="profile-left">
           <div>
           { this.state.edit ? ( <>
-            <p> editing </p>
-            <EditProfileLeft user={this.state.user} />
+            <p> Now editing your profile. </p>
+            <EditProfileLeft user={this.state.user} onclick={this.onClick}/>
             </>
           ) :
-            (<ProfileLeft user={this.state.user}/>)
+            (<ProfileLeft user={this.state.user} onclick={this.onClick}/>)
           }
           </div>
-
           <div className="profile-left-boxes">
               { this.state.edit ? (
                 <button type="submit" onClick={this.onClick}> Submit </button>

@@ -121,63 +121,75 @@ class CreateEvent extends Component {
 
     render() {
       return (
-        <form> 
-          <div>
-          <label>
+        <div className="CreateEvent-container">
+        <h1> Let's get started! </h1>
+        <form className="CreateEvent-form"> 
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             Name of Events: 
           </label>
           <input type="name" 
             onChange={this.handleChangeEvent.bind(this)} 
             value={this.state.eventName} 
-            placeholder = {"Event Name"} required/>
+            placeholder = {"Event Name"} required
+            className="CreateEvent-input"
+            />
           </div>
   
-          <div>
-          <label>
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             Start Time: 
           </label>
+          <div className="CreateEvent-input">
           <DateTimePicker
               onChange={this.handleChangeStart.bind(this)} 
               value={this.state.start}
               required
             />
           </div>
+          </div>
 
-          <div>
-          <label>
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             End Time:   
           </label>
+          <div className="CreateEvent-input">
           <DateTimePicker
               onChange={this.handleChangeEnd.bind(this)} 
               value={this.state.end}
               required
             />
           </div>
+          </div>
 
-          <div>
-          <label>
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             Online?
           </label>
           <input type="checkbox" 
               checked={this.state.online_event}
               onChange={this.handleChangeOnline}
+              className="CreateEvent-input"
               />
           </div>
 
-          <div>
-          <label>
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             Link:
           </label>
           <input type="link" 
             onChange={this.handleChangeLink.bind(this)} 
             value={this.state.link}
-            placeholder = {"Link"} />
+            placeholder = {"Link"} 
+            className="CreateEvent-input"
+            />
           </div>
 
-          <div>
-          <label>
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             Address:
           </label>
+          <div className="CreateEvent-input">
           <MapboxAutocomplete publicKey = {API_TOKEN}
             inputClass='form-control search'
             onSuggestionSelect={this._suggestionSelect}
@@ -185,19 +197,22 @@ class CreateEvent extends Component {
             placeholder='Address'
             resetSearch={false}/>
           </div>
+          </div>
 
-          <div>
-          <label>
+          <div className="CreateEvent-form CreateEvent-div">
+          <label className="CreateEvent-label">
             Description:
           </label>
           <input type="description" 
             onChange={this.handleChangeDescription.bind(this)} 
             value={this.state.description}
             placeholder = {"Description"} 
+            className="CreateEvent-input CreateEvent-description"
             required/>
           </div>
-          <button type="submit" onClick = {this.addEvent}>Submit</button>
+          <button type="submit" onClick = {this.addEvent}>Add an event!</button>
         </form>
+        </div>
       );
     }
   }

@@ -1,0 +1,33 @@
+.CreateEvent-container {
+    padding: 0% 27%;
+}
+
+.CreateEvent-form {
+    display: table;
+}
+
+.CreateEvent-div {
+    display: table-row;
+}
+
+.CreateEvent-label, .CreateEvent-input {
+    display: table-cell;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.CreateEvent-label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+.CreateEvent-input {
+    width: 500px;
+}
+
+.CreateEvent-description {
+    height: 300px;
+    width: 500px;
+    overflow-y: scroll;
+}

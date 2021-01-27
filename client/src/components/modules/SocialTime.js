@@ -44,7 +44,6 @@ class SocialTime extends Component {
 
     getSocialTime(condition) {
         const events = this.getThisWeeksEvents(condition);
-        
         let total = 0;
         for (let i = 0 ; i < events.length; i++){
             const event = events[i];
@@ -53,7 +52,7 @@ class SocialTime extends Component {
             const hoursSpent = (endDate - startDate)/(CONVERSIONTOHOURS);
             total += hoursSpent;
         }
-        return total
+        return Math.round(total);
     }
     
     render() {
@@ -64,10 +63,10 @@ class SocialTime extends Component {
             return (
                 <div>
                     <p>     
-                        Social time spent this week: {this.getSocialTime()}
+                        Social time spent this week: {this.getSocialTime()} hours!
                     </p>
                     <p>
-                        Social time you could spend this week: {this.getSocialTime("interested")}
+                        Social time you could spend this week: {this.getSocialTime("interested")} hours?
                     </p>
                 </div>
                 );

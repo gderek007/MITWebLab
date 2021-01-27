@@ -10,10 +10,12 @@ import "./Timetable.css";
 class Timetable extends Component {
     constructor(props) {
       super(props);
+      const today = this.currentDate(new Date());
       this.state = {
         events: [],
         eventsAttending: this.props.eventsAttending,
         eventsInterested: this.props.eventsInterested,
+        today: today,
 
       };
     }
@@ -28,6 +30,18 @@ class Timetable extends Component {
       });
     }
 
+    currentDate(d){
+      d = new Date(d);
+        var day = d.getDay(),
+            diff = d.getDate() ; 
+        return new Date(d.setDate(diff));
+    }
+
+    upcomingEvents(){
+      let upcoming = this.state.events.filter((e) => (new Date(e.start) >= this.state.today) )
+      return upcoming;
+    }
+
     render() {
       return (
         <div className="timetable-container ">
@@ -35,7 +49,7 @@ class Timetable extends Component {
             <EventList 
                 userId={this.props.userId} 
                 user={this.props.user}
-                events={this.state.events}
+                events={this.upcomingEvents()}
                 ishost={Boolean(false)}
                 null_msg={"There is no events! Come and create one!"}
             />

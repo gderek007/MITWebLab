@@ -81,7 +81,9 @@ class Profile extends Component {
           ) :
             (<ProfileLeft user={this.state.user}/>)
           }
+          
           </div>
+
           <div className="profile-left-boxes">
               { this.state.edit ? (
                 <button type="submit" onClick={this.onClick}> Submit </button>
@@ -90,9 +92,10 @@ class Profile extends Component {
               )}
               
           </div>
+          
         </div>
         <div className="profile-right">
-          <div>
+        <div>
             <SocialTime
             user={this.state.user}
             hostEvents={host_event}
@@ -100,7 +103,7 @@ class Profile extends Component {
             eventsInterested={interest_event}
             />
           </div>
-          <div>
+          <div className = "childDiv">
             <h2> Events you are Hosting! </h2>
               <EventList 
                 user={this.state.user}
@@ -110,7 +113,7 @@ class Profile extends Component {
                 null_msg={"You haven't hosted any events"}
               />
           </div>
-          <div>
+          <div className = "childDiv">
             <h2>Events you are Attending!</h2>
             <EventList 
                 user={this.state.user}
@@ -120,7 +123,7 @@ class Profile extends Component {
                 null_msg={"You haven't attended any events"}
               />
             </div>
-          <div>
+          <div className = "childDiv">
             <h2>Events you are Interested in 🤔</h2>
             <EventList 
                 user={this.state.user}

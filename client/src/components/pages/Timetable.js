@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import { get } from "../../utilities";
+import "../../utilities.css";
+
 import EventList from "../modules/EventList.js";
 
 import "./Timetable.css";
@@ -28,8 +30,8 @@ class Timetable extends Component {
 
     render() {
       return (
-        <div className="timetable-container">
-          <div className="timetable-left">
+        <div className="timetable-container ">
+          <div className="timetable-left parentDiv">
             <EventList 
                 userId={this.props.userId} 
                 user={this.props.user}

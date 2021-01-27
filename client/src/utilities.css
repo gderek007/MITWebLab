@@ -99,3 +99,13 @@ form {
 .u-link:hover {
   color: var(--primary--dim);
 }
+
+.parentDiv {
+  height: vh;
+  overflow-y: scroll;
+}
+
+.childDiv {
+  height: 400px;
+  overflow-y: scroll;
+}

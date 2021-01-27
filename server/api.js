@@ -94,6 +94,18 @@ router.post("/userevents", (req,res) => {
   }).then((page) => {res.send(page)});
 });
 
+router.post("/userupdate", (req,res) => {
+  console.log("Posting for userupdate");
+  User.updateOne({_id: req.user}, {$set : 
+    {"name": req.body.name,
+    "user_nickname": req.body.user_nickname,
+    "based": req.body.based,
+    "email": req.body.email,
+    "facebook_name": req.body.facebook_name,
+    } 
+  }).then((page) => {res.send(page)});
+});
+
 router.post("/interested", (req, res) => {
   console.log("Posting for userevents");
   Event.updateOne({_id: req.body.eventId}, {$inc : 

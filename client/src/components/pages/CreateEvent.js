@@ -121,62 +121,81 @@ class CreateEvent extends Component {
 
     render() {
       return (
-        <form>  
+        <form> 
+          <div>
           <label>
-            <input type="name" 
+            Name of Events: 
+          </label>
+          <input type="name" 
             onChange={this.handleChangeEvent.bind(this)} 
             value={this.state.eventName} 
             placeholder = {"Event Name"} required/>
-          </label>
+          </div>
   
+          <div>
           <label>
-            <DateTimePicker
+            Start Time: 
+          </label>
+          <DateTimePicker
               onChange={this.handleChangeStart.bind(this)} 
               value={this.state.start}
               required
             />
-          </label>
+          </div>
 
+          <div>
           <label>
-            <DateTimePicker
+            End Time:   
+          </label>
+          <DateTimePicker
               onChange={this.handleChangeEnd.bind(this)} 
               value={this.state.end}
               required
             />
-          </label>
+          </div>
 
+          <div>
           <label>
             Online?
-              <input type="checkbox" 
+          </label>
+          <input type="checkbox" 
               checked={this.state.online_event}
               onChange={this.handleChangeOnline}
               />
-          </label>
+          </div>
 
+          <div>
           <label>
-            <input type="link" 
+            Link:
+          </label>
+          <input type="link" 
             onChange={this.handleChangeLink.bind(this)} 
             value={this.state.link}
             placeholder = {"Link"} />
-          </label>
+          </div>
 
+          <div>
           <label>
+            Address:
+          </label>
           <MapboxAutocomplete publicKey = {API_TOKEN}
             inputClass='form-control search'
             onSuggestionSelect={this._suggestionSelect}
             country='us'
             placeholder='Address'
             resetSearch={false}/>
-          </label>
+          </div>
 
+          <div>
           <label>
-            <input type="description" 
+            Description:
+          </label>
+          <input type="description" 
             onChange={this.handleChangeDescription.bind(this)} 
             value={this.state.description}
             placeholder = {"Description"} 
             required/>
-          </label>
-
+          </div>
           <button type="submit" onClick = {this.addEvent}>Submit</button>
         </form>
       );

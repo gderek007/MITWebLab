@@ -58,6 +58,7 @@ import "./EditProfileLeft.css";
      // TODO: Rendering
      render() {
          return (
+           <>
              <form>
                  <label>
                     <input type="name" 
@@ -90,6 +91,10 @@ import "./EditProfileLeft.css";
                     placeholder = {this.props.user.facebook_name}/>
                 </label>
             </form>
+            <div className="profile-left-boxes">
+              <button type="submit" onClick={this.props.onclick}> Submit </button>
+            </div>
+          </>
          )
      }
  }

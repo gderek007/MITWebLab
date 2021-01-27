@@ -46,16 +46,19 @@ class Profile extends Component {
   }
   
   render() {
-    let host_event = this.state.events.filter(event => event.host_id === this.props.userId);
-    let attend_event = this.state.events.filter(event => this.state.user.events_attending.includes(event._id));
-    let interest_event = this.state.events.filter(event => this.state.user.events_interested.includes(event._id));
+
+
 
     if (!this.state.user) {
         return <div> Loading! </div>;
-      };
-
-    return (
-      <div className="profile-container">
+      }
+    else {    
+      let host_event = this.state.events.filter(event => event.host_id === this.props.userId);
+      let attend_event = this.state.user.events_attending.filter(event => event.host_id !== this.props.userId)
+      let interest_event = this.state.user.events_interested.filter(event => event.host_id !== this.props.userId)
+      
+      return (
+        <div className="profile-container">
         {/* <div className="profile-left">
             <div className="profile-left-names">
                 <h1 className="profile-nomargin"> {this.state.user.name} </h1>
@@ -118,6 +121,7 @@ class Profile extends Component {
         </div>
       </div>
     );
+    } 
   }
 }
 

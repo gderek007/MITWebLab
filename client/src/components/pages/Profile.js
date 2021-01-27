@@ -103,8 +103,9 @@ class Profile extends Component {
             eventsInterested={interest_event}
             />
           </div>
-          <div className = "childDiv">
+          <div>
             <h2> Events you are Hosting! </h2>
+            <div className = "childDiv">
               <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
@@ -112,9 +113,11 @@ class Profile extends Component {
                 ishost={Boolean(true)}
                 null_msg={"You haven't hosted any events"}
               />
+            </div>
           </div>
-          <div className = "childDiv">
+          <div>
             <h2>Events you are Attending!</h2>
+            <div className = "childDiv">
             <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
@@ -122,9 +125,11 @@ class Profile extends Component {
                 ishost={Boolean(false)}
                 null_msg={"You haven't attended any events"}
               />
+              </div>
             </div>
-          <div className = "childDiv">
+          <div>
             <h2>Events you are Interested in 🤔</h2>
+            <div className = "childDiv">
             <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
@@ -132,6 +137,7 @@ class Profile extends Component {
                 ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
               />
+              </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { get, post } from "../../utilities";
 import "./Profile.css";
 import EventList from "../modules/EventList.js";
+import SocialTime from "../modules/SocialTime.js";
 import ProfileLeft from "../modules/ProfileLeft.js";
 import EditProfileLeft from "../modules/EditProfileLeft.js";
 
@@ -91,6 +92,14 @@ class Profile extends Component {
           </div>
         </div>
         <div className="profile-right">
+          <div>
+            <SocialTime
+            user={this.state.user}
+            hostEvents={host_event}
+            eventsAttending={attend_event}
+            eventsInterested={interest_event}
+            />
+          </div>
           <div>
             <h2> Events you are Hosting! </h2>
               <EventList 

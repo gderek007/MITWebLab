@@ -71,7 +71,7 @@ class Profile extends Component {
         <div className="profile-left">
           <div>
           { this.state.edit ? ( <>
-            <p> editing </p>
+            <p> Now editing your profile. </p>
             <EditProfileLeft user={this.state.user} onclick={this.onClick}/>
             </>
           ) :

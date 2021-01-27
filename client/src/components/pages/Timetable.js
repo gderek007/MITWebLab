@@ -42,19 +42,14 @@ class Timetable extends Component {
 
     render() {
       return (
-        <div className="timetable-container ">
-          <div className="timetable-left parentDiv">
-            <EventList 
+        <div className="timetable-container">
+          <EventList 
                 userId={this.props.userId} 
                 user={this.props.user}
                 events={this.upcomingEvents()}
                 null_msg={"There is no events! Come and create one!"}
                 isUserProfile={Boolean(false)}
             />
-          </div>
-          {/* <div className="timetable-right">
-            <p> List of Filters </p>
-          </div> */}
         </div>
       );
     }

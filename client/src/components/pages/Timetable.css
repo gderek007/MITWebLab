@@ -1,8 +1,9 @@
 .timetable-container {
     height: 91.7vh;
-    width: 100%;
     display: grid;
-    grid-template-columns: 80% 20%;
+    padding-left: 5vw;
+    padding-right: 3vw;
+    overflow-y: scroll;
 }
 
 .timetable-left {

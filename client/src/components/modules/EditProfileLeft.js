@@ -53,7 +53,26 @@ import "./EditProfileLeft.css";
           facebook_name: facebook.target.value,
         });
       };
+
      // Updating User Details
+     onSubmit = () => {
+      const body = {
+        name: this.state.name, 
+        user_nickname: this.state.user_nickname,
+        based: this.state.based,
+        email: this.state.email, 
+        facebook_name: this.state.facebook_name,}
+        
+      post("/api/userupdate", body).then((event) => {
+        this.setState({
+          name: "",
+          user_nickname: "",
+          based: "",
+          email: "",
+          facebook_name: "",
+        });
+      }).catch((e) => console.log(e));
+    }
 
      // TODO: Rendering
      render() {
@@ -92,7 +111,7 @@ import "./EditProfileLeft.css";
                 </label>
             </form>
             <div className="profile-left-boxes">
-              <button type="submit" onClick={this.props.onclick}> Submit </button>
+              <button type="submit" onClick={this.onSubmit}> Submit </button>
             </div>
           </>
          )

@@ -24,6 +24,7 @@ class Map extends Component {
       events: [],
       virtualEvents: [],
       selectedEvent: null,
+      btnText: "Show Virtual Events"
     };
   }
 
@@ -48,7 +49,7 @@ class Map extends Component {
   }
 
   upcomingEvents(){
-    let upcoming = this.state.events.filter((e) => (new Date(e.start) >= this.state.today) )
+    let upcoming = this.state.virtualEvents.filter((e) => (new Date(e.start) >= this.state.today) )
     return upcoming;
   }
 
@@ -132,21 +133,23 @@ class Map extends Component {
             className="virtual-btn"
             onClick={ (e) => {
               let overlayDiv = document.querySelector(".overlay");
-              console.log(overlayDiv.style.zIndex);
-              if (overlayDiv.style.zIndex === '-1')
+              if (overlayDiv.style.zIndex === '-1') {
                 overlayDiv.style.zIndex = 90;
-              else
+                this.setState({btnText: "Hide Virtual Events"})
+              } else {
                 overlayDiv.style.zIndex = -1;
+                this.setState({btnText: "Show Virtual Events"})
+              }
             }}
           >
-            <h3>Show Virtual Events</h3>
+            {this.state.btnText}
           </button>
       </div>
 
       <div
         className="overlay"
       >
-        <h1>Overlay</h1>
+        <h1>Virtual Events</h1>
         <div className = "childDiv">
             <EventList 
               user={this.props.user}

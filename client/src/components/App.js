@@ -13,7 +13,6 @@ import "../utilities.css";
 import "./App.css";
 
 import { socket } from "../client-socket.js";
-
 import { get, post } from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ class App extends Component {
             <Profile path="/profile/:userId"/>
             <Timetable path = "/timetable" userId={this.state.userId} user={this.state.user}/>
             <CreateEvent path = "/addevent" />
-            <Home path = "/home" />
+            <Home path = "/" />
             <Map path = "/map" />
             <NotFound default />
           </Router>

@@ -15,7 +15,7 @@ class NavBar extends Component {
         return(
         <nav className="NavBar-container">
             <div className="NavBar-title u-inlineBlock">
-            <Link to="/home" className="NavBar-link">
+            <Link to="/s" className="NavBar-link">
                 Eventinder
             </Link></div>
             

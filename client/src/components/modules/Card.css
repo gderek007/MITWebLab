@@ -48,3 +48,7 @@
   font-size: 40px;
   margin: var(--s) 0 0;
 }
+
+.Card-comment {
+  width: 80%;
+}

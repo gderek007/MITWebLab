@@ -86,8 +86,8 @@ class Card extends Component {
           </div>
           {this.props.userId ? (
             <label>
-              Comment
-              <input type="name" onChange={this.handleChangeComment.bind(this)} value={this.state.content}/>
+              Comment:
+              <input type="name" onChange={this.handleChangeComment.bind(this)} value={this.state.content} className="Card-comment" />
               <button type="submit" onClick = {this.addComment}>Submit</button>
             </label>) : (<div> </div>)}
         </div>

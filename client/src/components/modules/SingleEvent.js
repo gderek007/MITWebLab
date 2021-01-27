@@ -30,7 +30,7 @@ class SingleEvent extends Component {
     render() {
       return (
       <div className = "Card-event">
-        <div className = "Card-eventTitle " >
+        <div className = "Card-eventTitle" >
         {this.props.eventObj.nameEvent + " "}
           <div className = "Card-eventUser u-inlineBlock">
           By: {this.props.eventObj.host}

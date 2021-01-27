@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import GoingInterested from "./GoingInterested";
+import EditEvent from "./EditEvent.js";
 
 import "./SingleEvent.css";
 
@@ -51,11 +52,12 @@ class SingleEvent extends Component {
           <div>
             This is an online event.
           </div> ) : (<> </>)}
+        {this.props.eventObj.description}
         { (this.props.eventObj.host_id === this.props.userId) ? (
           <>
           <p> You are hosting this event.</p>
             <> { this.props.isUserProfile ? (
-              <p> You can edit here. </p>
+              <EditEvent eventObj={this.props.eventObj} />
             ) : (
               <p> Please go to profile page to edit. </p>
             )
@@ -66,7 +68,6 @@ class SingleEvent extends Component {
             userId = {this.props.userId}
             eventObj = {this.props.eventObj} /> )}
         <p>
-        {this.props.eventObj.description}
         {/*isUserProfile = this.props.isUserProfile */}
         </p>
       </div>

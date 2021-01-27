@@ -51,6 +51,22 @@ router.post("/addevent", (req, res) => {
   console.log("Posted Event");
 });
 
+router.post("/updateevent", (req,res) => {
+  console.log("Posting for updateevent");
+  Event.updateOne({_id: req.body.event_id}, {$set : 
+    {"nameEvent": req.body.nameEvent,
+    "start": req.body.start,
+    "end": req.body.end,
+    "online_event": req.body.online_event,
+    "address": req.body.new_address,
+    "lat": req.body.lat,
+    "lng": req.body.lng,
+    "link": req.body.link,
+    "description": req.body.description,
+    } 
+  }).then((event) => {res.send(event)});
+});
+
 router.get("/comment", (req, res) => {
   Comment.find({ parent: req.query.parent }).then((comments) => {
     res.send(comments);

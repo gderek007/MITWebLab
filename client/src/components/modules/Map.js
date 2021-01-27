@@ -12,6 +12,7 @@ const MIT_LNG = -71.09148101699134;
 class Map extends Component {
   constructor(props) {
     super(props);
+    const today = this.currentDate(new Date());
     this.state = {
       viewport: {
         latitude: MIT_LAT, 

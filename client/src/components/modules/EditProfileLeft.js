@@ -23,8 +23,8 @@ import "./EditProfileLeft.css";
          }
      }
 
-     // TODO: Handle Change Function
-     handleChangeName = (name) => {
+      // Handle Change Function
+      handleChangeName = (name) => {
         this.setState({
           name: name.target.value,
         });
@@ -54,8 +54,7 @@ import "./EditProfileLeft.css";
         });
       };
 
-     // Updating User Details
-
+      // Updating User Details
       statetobody = (state) => {
         let new_name = this.state.name;
         let new_user_nickname = this.state.user_nickname;
@@ -92,8 +91,8 @@ import "./EditProfileLeft.css";
       }).catch((e) => console.log(e));
     }
 
-     // TODO: Rendering
-     render() {
+    // TODO: Rendering
+    render() {
          return (
            <>
              <form>

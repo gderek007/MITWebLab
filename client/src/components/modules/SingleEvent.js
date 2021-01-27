@@ -9,7 +9,6 @@ import "./SingleEvent.css";
  * Proptypes
  * @param {string} userId
  * @param {string} eventObj
- * @param {string} ishost
  */
 
 class SingleEvent extends Component {

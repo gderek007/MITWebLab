@@ -9,7 +9,6 @@ import Card from "./Card.js";
  * @param {string} userId
  * @param {string} user
  * @param {string} events
- * @param {string} ishost
  * @param {string} null_msg
  */
 
@@ -28,7 +27,6 @@ class EventList extends Component {
               eventObj = {eventObj}
               userId = {this.props.userId}
               user = {this.props.user}
-              ishost = {this.props.ishost}
             />
           ));
         } else {

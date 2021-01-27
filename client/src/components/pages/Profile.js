@@ -123,7 +123,6 @@ class Profile extends Component {
                 user={this.state.user}
                 userId={this.props.userId} 
                 events={this.upcomingEvents(host_event)}
-                ishost={Boolean(true)}
                 null_msg={"You haven't hosted any events"}
               />
             </div>
@@ -135,7 +134,6 @@ class Profile extends Component {
                 user={this.state.user}
                 userId={this.props.userId} 
                 events={this.upcomingEvents(attend_event)}
-                ishost={Boolean(false)}
                 null_msg={"You haven't attended any events"}
               />
             </div>
@@ -147,7 +145,6 @@ class Profile extends Component {
                 user={this.state.user}
                 userId={this.props.userId} 
                 events={this.upcomingEvents(interest_event)}
-                ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
               />
             </div>

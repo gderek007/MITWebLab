@@ -48,7 +48,6 @@ class Timetable extends Component {
                 userId={this.props.userId} 
                 user={this.props.user}
                 events={this.upcomingEvents()}
-                ishost={Boolean(false)}
                 null_msg={"There is no events! Come and create one!"}
             />
           </div>

@@ -18,7 +18,6 @@ import {get, post} from "../../utilities";
  * @param {string} eventObj
  * @param {string} userId
  * @param {string} user
- * @param {string} ishost (hard coded for now)
  */
 
 class Card extends Component {
@@ -71,7 +70,6 @@ class Card extends Component {
           <SingleEvent 
             userId = {this.props.userId}
             eventObj = {this.props.eventObj}
-            ishost = {this.props.ishost}
           />
           <div>
             {comments.map((comment) => (

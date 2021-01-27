@@ -22,6 +22,10 @@ class SingleEvent extends Component {
       return new Date(dateString).toLocaleDateString(undefined, options) + " "
     }
 
+    isHost = (eventObj, userId) => {
+      return (eventObj.host_Id === userId)
+    }
+
     render() {
       return (
       <div className = "Card-event">
@@ -47,7 +51,9 @@ class SingleEvent extends Component {
           <div>
             This is an online event.
           </div> ) : (<> </>)}
-        {this.props.ishost ? (<> </>) : (
+        { (this.props.eventObj.host_id === this.props.userId) ? (
+          <p> You are hosting this event.</p>
+        ) : (
           <GoingInterested 
             userId = {this.props.userId}
             eventObj = {this.props.eventObj} /> )}

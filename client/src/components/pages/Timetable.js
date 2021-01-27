@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-
-import { get } from "../../utilities";
-import "../../utilities.css";
-
 import EventList from "../modules/EventList.js";
 
+import "../../utilities.css";
 import "./Timetable.css";
+
+import { get } from "../../utilities";
 
 class Timetable extends Component {
     constructor(props) {
@@ -16,7 +15,6 @@ class Timetable extends Component {
         eventsAttending: this.props.eventsAttending,
         eventsInterested: this.props.eventsInterested,
         today: today,
-
       };
     }
 

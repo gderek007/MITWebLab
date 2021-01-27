@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
 
 /**
  * Component to render a single comment
  *
  * Proptypes
  * @param {string} _id of comment
- * @param {string} creator_name
  * @param {string} content of the comment
+ * @param {string} creator_id 
+ * @param {string} creator_name
  */
 class SingleComment extends Component {
   constructor(props) {

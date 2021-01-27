@@ -19,7 +19,6 @@ import { get, post } from "../utilities";
  * Define the "App" component as a class.
  */
 class App extends Component {
-  // makes props available in this component
   constructor(props) {
     super(props);
     this.state = {
@@ -61,10 +60,6 @@ class App extends Component {
         />
         <div className="App-container">
           <Router>
-            {/* 
-            Add <Component path = "" props />
-            <Feed path="/" userId={this.state.userId} />
-            <Profile path="/profile/:userId"/>*/}
             <Profile path="/profile/:userId"/>
             <Timetable path = "/timetable" userId={this.state.userId} user={this.state.user}/>
             <CreateEvent path = "/addevent" />

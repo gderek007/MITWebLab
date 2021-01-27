@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import "./SingleEvent.css";
 import GoingInterested from "./GoingInterested";
 
+import "./SingleEvent.css";
+
 /**
- * Story is a component that renders creator and content of a story
+ * SingleEvent is a component that renders an event
  *
  * Proptypes
  * @param {string} userId

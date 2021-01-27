@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-import { get,post } from "../../utilities";
 
 import "./Card.css";
 
+import { get,post } from "../../utilities";
+
+/**
+ * GoingInterested is a component that renders and posts the number of going/interest an event has
+ *
+ * Proptypes
+ * @param {string} userId
+ * @param {string} eventObj
+ */
 class GoingInterested extends Component {
     constructor(props) {
         super(props);

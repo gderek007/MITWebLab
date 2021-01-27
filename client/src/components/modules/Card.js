@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import {get, post} from "../../utilities";
 import Comment from "../../../../server/models/comment.js";
-import GoogleLogin, { GoogleLogout } from "react-google-login";
 
-import "./Card.css";
 import SingleEvent from "./SingleEvent.js";
 import SingleComment from "./SingleComment.js";
+
+import "./Card.css";
+
+import {get, post} from "../../utilities";
 
 /**
  * Card is a component that renders 
@@ -16,6 +17,7 @@ import SingleComment from "./SingleComment.js";
  * @param {string} key
  * @param {string} eventObj
  * @param {string} userId
+ * @param {string} user
  * @param {string} ishost (hard coded for now)
  */
 
@@ -44,17 +46,7 @@ class Card extends Component {
       });
     };
 
-    makeCommentsReadable() {
-      let comments = this.state.comments;
-      let creator = "";
-      for (let index = 0; index < comments.length; index++) {
-        const element = comments[index];
-        creator += element.creator_name + ": " + element.content + "\n";
-      }
-      return creator;
-    }
-
-    addComment = () => {
+    addComment() {
       const body = {content: this.state.content, parent:this.props.event_Id };
       const newComment = new Comment({
         creator_name: this.props.user.name,
@@ -76,14 +68,12 @@ class Card extends Component {
       let hasComments = this.state.comments.length !== 0;
       return (
         <div className="Card-container tooltip" >
-            {/* <span className="tooltiptext tooltip-inner" data-html="true">{hasComments ? this.makeCommentsReadable() : "No comments"}</span> */}
           <SingleEvent 
             userId = {this.props.userId}
             eventObj = {this.props.eventObj}
             ishost = {this.props.ishost}
           />
           <div>
-            {/* this.makeCommentsReadable() */}
             {comments.map((comment) => (
               <SingleComment
                 key={`SingleComment_${comment._id}`}

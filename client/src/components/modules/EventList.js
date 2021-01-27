@@ -7,6 +7,7 @@ import Card from "./Card.js";
  *
  * Proptypes
  * @param {string} userId
+ * @param {string} user
  * @param {string} events
  * @param {string} ishost
  * @param {string} null_msg
@@ -33,7 +34,6 @@ class EventList extends Component {
         } else {
           eventsList = <div> {this.props.null_msg} </div>;
         }
-  
       return (
         <div> {eventsList} </div>
       );

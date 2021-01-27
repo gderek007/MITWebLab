@@ -57,8 +57,8 @@ class Card extends Component {
     addComment = () => {
       const body = {content: this.state.content, parent:this.props.event_Id };
       const newComment = new Comment({
-        // creator_name: this.props.creatorName,
-        // creator_id: this.props.creatorID,
+        creator_name: this.props.user.name,
+        creator_id: this.props.userId,
         content: this.state.content,
         parent: this.props.event_Id,
       });

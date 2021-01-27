@@ -25,6 +25,7 @@ class App extends Component {
     super(props);
     this.state = {
       userId: null,
+      user: null,
     };
   }
 
@@ -32,7 +33,7 @@ class App extends Component {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registerd in the database, and currently logged in.
-        this.setState({ userId: user._id });
+        this.setState({ userId: user._id, user: user });
       }
     });
   }
@@ -41,13 +42,13 @@ class App extends Component {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
-      this.setState({ userId: user._id });
+      this.setState({ userId: user._id , user: user});
       post("/api/initsocket", { socketid: socket.id });
     });
   };
 
   handleLogout = () => {
-    this.setState({ userId: undefined });
+    this.setState({ userId: undefined, user: undefined });
     post("/api/logout");
   };
 
@@ -66,7 +67,7 @@ class App extends Component {
             <Feed path="/" userId={this.state.userId} />
             <Profile path="/profile/:userId"/>*/}
             <Profile path="/profile/:userId"/>
-            <Timetable path = "/timetable" userId={this.state.userId}/>
+            <Timetable path = "/timetable" userId={this.state.userId} user={this.state.user}/>
             <CreateEvent path = "/addevent" />
             <Home path = "/home" />
             <Map path = "/map" />

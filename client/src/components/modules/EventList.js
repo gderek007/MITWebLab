@@ -26,6 +26,7 @@ class EventList extends Component {
               key={`SingleEvent_${eventObj._id}`}
               eventObj = {eventObj}
               userId = {this.props.userId}
+              user = {this.props.user}
               ishost = {this.props.ishost}
             />
           ));

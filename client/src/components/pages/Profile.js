@@ -103,6 +103,7 @@ class Profile extends Component {
           <div>
             <h2> Events you are Hosting! </h2>
               <EventList 
+                user={this.state.user}
                 userId={this.props.userId} 
                 events={host_event}
                 ishost={Boolean(true)}
@@ -112,6 +113,7 @@ class Profile extends Component {
           <div>
             <h2>Events you are Attending!</h2>
             <EventList 
+                user={this.state.user}
                 userId={this.props.userId} 
                 events={attend_event}
                 ishost={Boolean(false)}
@@ -121,6 +123,7 @@ class Profile extends Component {
           <div>
             <h2>Events you are Interested in 🤔</h2>
             <EventList 
+                user={this.state.user}
                 userId={this.props.userId} 
                 events={interest_event}
                 ishost={Boolean(false)}

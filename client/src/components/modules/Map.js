@@ -64,9 +64,9 @@ class Map extends Component {
   }
   
   render() {
+    let validEventList = this.state.events.filter(eventObj => (eventObj.lat && eventObj.lng));
     return ( 
     <div>
-
       <div className="map">
       <ReactMapGL {...this.state.viewport} 
         mapboxApiAccessToken={API_TOKEN}
@@ -74,7 +74,7 @@ class Map extends Component {
         onViewportChange={viewport => this.setState({viewport})}
       >
         
-        {this.state.events.map(eventObj => (
+        {validEventList.map(eventObj => (
           <Marker 
             key={eventObj._id} 
             latitude={eventObj.lat} 

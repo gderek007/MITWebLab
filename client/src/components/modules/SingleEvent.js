@@ -23,10 +23,6 @@ class SingleEvent extends Component {
       return new Date(dateString).toLocaleDateString(undefined, options) + " "
     }
 
-    isHost = (eventObj, userId) => {
-      return (eventObj.host_Id === userId)
-    }
-
     render() {
       return (
       <div className = "Card-event">
@@ -55,23 +51,24 @@ class SingleEvent extends Component {
             This is an online event.
           </div> ) : (<> </>)}
         {this.props.eventObj.description}
-        { (this.props.eventObj.host_id === this.props.userId) ? (
-          <>
-          <p> You are hosting this event.</p>
-            <> { this.props.isUserProfile ? (
-              <EditEvent eventObj={this.props.eventObj} />
-            ) : (
-              <p> Please go to profile page to edit. </p>
-            )
-            } </>
+        
+        { this.props.userId ? ( <>
+          { (this.props.eventObj.host_id === this.props.userId) ? (
+           <>
+            <p> You are hosting this event.</p>
+              <> { this.props.isUserProfile ? (
+                <EditEvent eventObj={this.props.eventObj} />
+              ) : (
+                <p> Please go to profile page to edit. </p>
+              )
+              } </>
+            </>
+          ) : (
+            <GoingInterested 
+              userId = {this.props.userId}
+              eventObj = {this.props.eventObj} /> )}
           </>
-        ) : (
-          <GoingInterested 
-            userId = {this.props.userId}
-            eventObj = {this.props.eventObj} /> )}
-        <p>
-        {/*isUserProfile = this.props.isUserProfile */}
-        </p>
+        ) : (<> </>)}
       </div>
       );
     }

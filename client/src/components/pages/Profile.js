@@ -46,18 +46,33 @@ class Profile extends Component {
     }
   }
   
+  currentDate(d){
+    d = new Date(d);
+      var day = d.getDay(),
+          diff = d.getDate() ; 
+      return new Date(d.setDate(diff));
+  }
+
+  upcomingEvents(events){
+    const today = this.currentDate(new Date());
+    let upcoming = events.filter((e) => (new Date(e.start) >= today) )
+    return upcoming;
+  }
+
+  pastEvents(events){
+    const today = this.currentDate(new Date());
+    let upcoming = events.filter((e) => (new Date(e.start) < today) )
+    return upcoming;
+  }
+
   render() {
-
-
-
     if (!this.state.user) {
         return <div> Loading! </div>;
       }
     else {    
-      let host_event = this.state.events.filter(event => event.host_id === this.props.userId);
-      let attend_event = this.state.user.events_attending.filter(event => event.host_id !== this.props.userId)
-      let interest_event = this.state.user.events_interested.filter(event => event.host_id !== this.props.userId)
-      
+      let host_event = (this.state.events.filter(event => event.host_id === this.props.userId));
+      let attend_event = (this.state.user.events_attending.filter(event => event.host_id !== this.props.userId));
+      let interest_event = (this.state.user.events_interested.filter(event => event.host_id !== this.props.userId));
       return (
         <div className="profile-container">
         {/* <div className="profile-left">
@@ -109,7 +124,7 @@ class Profile extends Component {
               <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
-                events={host_event}
+                events={this.upcomingEvents(host_event)}
                 ishost={Boolean(true)}
                 null_msg={"You haven't hosted any events"}
               />
@@ -121,7 +136,7 @@ class Profile extends Component {
             <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
-                events={attend_event}
+                events={this.upcomingEvents(attend_event)}
                 ishost={Boolean(false)}
                 null_msg={"You haven't attended any events"}
               />
@@ -133,7 +148,19 @@ class Profile extends Component {
             <EventList 
                 user={this.state.user}
                 userId={this.props.userId} 
-                events={interest_event}
+                events={this.upcomingEvents(interest_event)}
+                ishost={Boolean(false)}
+                null_msg={"Seems like your wishlist is empty"}
+              />
+              </div>
+          </div>
+          <div>
+            <h2>Your Past Events</h2>
+            <div className = "childDiv">
+            <EventList 
+                user={this.state.user}
+                userId={this.props.userId} 
+                events={this.pastEvents(attend_event.concat(host_event))}
                 ishost={Boolean(false)}
                 null_msg={"Seems like your wishlist is empty"}
               />

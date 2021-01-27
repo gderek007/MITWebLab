@@ -77,36 +77,17 @@ class Profile extends Component {
       let interest_event = (this.state.user.events_interested.filter(event => event.host_id !== this.props.userId));
       return (
         <div className="profile-container">
-        {/* <div className="profile-left">
-            <div className="profile-left-names">
-                <h1 className="profile-nomargin"> {this.state.user.name} </h1>
-                <h3 className="profile-nomargin"> {this.state.user.user_nickname} </h3>
-                <p className="profile-nomargin"> Rating: {this.state.user.rating} / 10 </p>
+          <div className="profile-left">
+            <div>
+              { this.state.edit ? ( <>
+                <p> Now editing your profile. </p>
+                <EditProfileLeft user={this.state.user} onclick={this.onClick}/>
+                </>
+              ) :
+              (<ProfileLeft user={this.state.user} onclick={this.onClick}/>)
+              }
             </div>
-            <div className="profile-left-details">
-                <p className="profile-nomargin"> Based in: {this.state.user.based} </p>
-                <p className="profile-nomargin"> Email: {this.state.user.email} </p>
-                <p className="profile-nomargin"> Facebook Name: {this.state.user.facebook_name} </p>
-            </div>
-        </div> */}
-        <div className="profile-left">
-          <div>
-          { this.state.edit ? ( <>
-            <p> Now editing your profile. </p>
-            <EditProfileLeft user={this.state.user} onclick={this.onClick}/>
-            </>
-          ) :
-            (<ProfileLeft user={this.state.user} onclick={this.onClick}/>)
-          }
           </div>
-          {/* <div className="profile-left-boxes">
-              { this.state.edit ? (
-                <button type="submit" onClick={this.onClick}> Submit </button>
-              ) : (
-                <button type="submit" onClick={this.onClick}> Edit Profile </button>
-              )}
-          </div> */}
-        </div>
         <div className="profile-right">
           <div>
             <SocialTime

@@ -21,7 +21,7 @@ class ProfileLeft extends Component {
             <div className="profile-left-names">
                 <h1 className="profile-nomargin"> {this.props.user.name} </h1>
                 <h3 className="profile-nomargin"> {this.props.user.user_nickname} </h3>
-                <p className="profile-nomargin"> Rating: {this.props.user.rating} / 10 </p>
+                {/* <p className="profile-nomargin"> Rating: {this.props.user.rating} / 10 </p> */}
             </div>
             <div className="profile-left-details">
                 <p className="profile-nomargin"> Based in: {this.props.user.based} </p>

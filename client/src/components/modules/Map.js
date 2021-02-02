@@ -5,7 +5,7 @@ import EventList from "./EventList.js";
 
 import "./Map.css";
 
-const API_TOKEN = "pk.eyJ1IjoibXBlcmF6YTA3MTQiLCJhIjoiY2trM2wxaXcyMTRwaTJ4cGpiaXQ3bjltNiJ9.a8AxmhpMBO7jfrD3s190Yg";
+const API_TOKEN = "import";
 const MIT_LAT = 42.35531356439811;
 const MIT_LNG = -71.09148101699134;
 
